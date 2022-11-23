@@ -35,5 +35,4 @@ DarNote is a full-stack clone of Evernote which is one of the best note-taking w
 <!-- [add a cool element from site here] -->
 
 
-## How to run DarNote Locally:
-   * Clone this repository: 
+## Future Implementation Goals
