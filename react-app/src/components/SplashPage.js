@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import DarImage from "./assets/Darnote_splash.png"
 import NavBar from "./NavBar";
 import "./CSS/SplashPage.css"
 
@@ -25,6 +26,33 @@ export default function SplashPage() {
                                     Already have an account? Log in
                                 </NavLink>
                             </p>
+                        </div>
+                        <div className="splash-highlight">
+                            <div className="splash-highlight-image-container">
+                                <img className="splash-highlight-image" src={DarImage}></img>
+                            </div>
+                            <div className="highlight-text-container">
+                                <div className="highlight-text">
+                                    <div className="highlight-text-items">
+                                        <div className="text-title-container">
+                                            <p className="text-title">WORK ANYWHERE</p>
+                                        </div>
+                                        <div className="highlight-description">
+                                            <p className="highlight-description-text">Keep important info handy— your notes sync automatically to all your devices.</p>
+                                        </div>
+                                    </div>
+                                    <div className="highlight-text-items">
+                                        <div className="text-title-container">
+                                            <p className="text-title">REMEMBER EVERYTHING</p>
+                                        </div>
+                                        <div className="highlight-description">
+                                            <p className="highlight-description-text">Make notes more useful by adding text, images, audio, scans, PDFs, and documents.</p>
+                                        </div>
+                                    </div>
+                                    <div className="highlight-text-items"></div>
+                                    <div className="highlight-text-items"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

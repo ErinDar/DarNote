@@ -129,7 +129,7 @@
 .login-second-link {
     font-size: 18px;
     text-decoration: underline;
-    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    font-family: "Soleil 300", Arial, Helvetica, sans-serif;
     line-height: 21px;
 }
 
@@ -141,4 +141,53 @@
 
 .login-button:hover {
     color: #4488D1;
+}
+
+.splash-highlight {
+    display: flex;
+}
+
+.splash-highlight-image-container {
+    width: 84%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.splash-highlight-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.highlight-text-container {
+    width: 16%;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+}
+
+.highlight-text {
+    text-align: left;
+}
+
+.highlight-text-items {
+    padding-bottom: 20px;
+}
+
+.text-title {
+    padding-bottom: 10px;
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 150%;
+    font-weight: bold;
+}
+
+.highlight-description-text {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 150%;
+    font-family: "Soleil 300", Arial, Helvetica, sans-serif;
 }
