@@ -4,6 +4,11 @@
     top: 0;
     width: 100%;
     z-index: 999;
+    transition: all .5s;
+}
+
+.on-scroll {
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
 }
 
 .main {
@@ -11,14 +16,18 @@
     background: #fff;
 }
 
-.nav-bar {
+.main .nav-bar {
     display: flex;
     align-items: center;
     height: 80px;
     padding: 0;
     position: relative;
+}
+
+.nav-bar {
     margin: 0 auto;
     max-width: 1220px;
+    padding: 0 40px;
 }
 
 .logo {
@@ -189,5 +198,115 @@
     font-size: 16px;
     letter-spacing: 0;
     line-height: 150%;
-    font-family: "Soleil 300", Arial, Helvetica, sans-serif;
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+.darnote-footer {
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 14px;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.footer-nav-bar {
+    margin-bottom: 100px;
+}
+
+.footer-logo {
+    border-bottom: 3px solid #000;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+}
+
+.footer-nav-bar .nav-bar {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.logo-footer {
+    background-image: url(../assets/Darnote_logo.svg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 40px;
+    width: 170px;
+}
+
+.footer-nav-bar .nav-bar.footer-links {
+    display: flex;
+}
+
+.footer-nav-bar .nav-bar {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.footer-link-section {
+    display: block;
+    flex: 1 1 16.666%;
+    max-width: 16.666%;
+    padding: 10px;
+}
+
+.section-header {
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 21px;
+    color: inherit;
+    font-size: inherit;
+}
+
+.footer-link-section ul {
+    list-style-type: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 21px;
+}
+
+.footer-link-section li {
+    line-height: normal;
+    margin: 28px 0;
+    list-style-type: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.section-link {
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    transition: .1s color ease-in-out;
+    font-size: inherit;
+    cursor: pointer;
+    font-weight: lighter;
+}
+
+.section-link:hover {
+    color: #4488D1;
+}
+
+/* media queries */
+
+@media screen and (max-width:1220px) {
+    .main .nav-bar {
+        padding: 0 40px;
+    }
+
+    .main-splash-container .main-splash-wrapper {
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .main {
+        z-index: 995;
+    }
 }
