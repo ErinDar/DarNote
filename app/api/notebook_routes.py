@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Notebook, db
 from app.forms import NotebookForm
@@ -14,7 +14,7 @@ def validation_errors_to_error_messages(validation_errors):
     return error_messages
 
 
-@notebook_routes.route("/")
+@notebook_routes.route("")
 @login_required
 def notebooks():
     notebooks = Notebook.query.filter(Notebook.owner_id == current_user.id)
@@ -25,6 +25,7 @@ def notebooks():
 @login_required
 def new_notebook():
     form = NotebookForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         notebook = Notebook(name=form.data["name"], owner_id=current_user.id)
         db.session.add(notebook)
@@ -39,6 +40,7 @@ def edit_notebook(id):
     notebook = Notebook.query.get(id)
     if current_user.id == notebook.owner_id:
         form = NotebookForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             notebook.name = form.data["name"]
             db.session.add(notebook)
