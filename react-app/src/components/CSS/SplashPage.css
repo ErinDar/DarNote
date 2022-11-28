@@ -1,0 +1,144 @@
+.dar-note-header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.main {
+    z-index: 997;
+    background: #fff;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1220px;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.logo-link {
+    display: block;
+    background-size: contain;
+    height: 40px;
+    width: 177px;
+}
+
+.logo-image {
+    display: block;
+}
+
+.main-nav {
+    display: inline-block;
+    margin-left: auto;
+
+}
+
+.nav-items-container {
+    font-size: 13px;
+    line-height: 21px;
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+}
+
+.nav-items {
+    display: inline-block;
+    font-family: "Soleil 300", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+
+.login-link,
+.login-link:visited {
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.main-splash-container {
+    padding-top: 30px;
+}
+
+.main-splash-wrapper {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1220px;
+}
+
+.splash-wrapper {
+    text-align: center;
+}
+
+.top-main-splash {
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.top-main-heading {
+    padding-bottom: 10px;
+    font-family: "Soleil 400", Arial, Helvetica, sans-serif;
+    font-size: 56px;
+    line-height: 150%;
+    font-weight: 500;
+}
+
+.tag-line {
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    line-height: 40px;
+    padding-bottom: 30px;
+}
+
+.sign-up-link {
+    padding-bottom: 20px;
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    line-height: 21px;
+}
+
+.sign-up-button {
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 16px 80px;
+    background: #4488D1;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    letter-spacing: 1.5px;
+    line-height: 150%;
+    text-align: center;
+    text-decoration: none;
+    transition: .3s background ease-in-out;
+}
+
+.sign-up-button:hover {
+    background: #86b7ec;
+}
+
+.login-second-link {
+    font-size: 18px;
+    text-decoration: underline;
+    font-family: "Soleil", Arial, Helvetica, sans-serif;
+    line-height: 21px;
+}
+
+.login-button {
+    text-decoration: none;
+    color: #000;
+    transition: .1s color ease-in-out;
+}
+
+.login-button:hover {
+    color: #4488D1;
+}
