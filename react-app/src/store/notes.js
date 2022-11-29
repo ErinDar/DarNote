@@ -1,78 +1,83 @@
-const NEW_NOTEBOOK = "notebooks/NEW_NOTEBOOK"
-const EDIT_NOTEBOOK = "notebooks/EDIT_NOTEBOOK"
-const GET_NOTEBOOKS = "notebooks/GET_NOTEBOOKS"
-const DELETE_NOTEBOOKS = "notebooks/DELETE_NOTEBOOKS"
+const NEW_NOTE = "notebooks/NEW_NOTE"
+const EDIT_NOTE = "notebooks/EDIT_NOTE"
+const GET_NOTES = "notebooks/GET_NOTES"
+const DELETE_NOTE = "notebooks/DELETE_NOTE"
 
-const newNotebook = (notebook) => ({
-    type: NEW_NOTEBOOK,
+const newNote = (notebook) => ({
+    type: NEW_NOTE,
     notebook
 })
 
-const editNotebook = (notebook) => ({
-    type: EDIT_NOTEBOOK,
+const editNote = (notebook) => ({
+    type: EDIT_NOTE,
     notebook
 })
 
-const getNotebooks = (notebooks) => ({
-    type: GET_NOTEBOOKS,
+const getNotes = (notebooks) => ({
+    type: GET_NOTES,
     notebooks
 })
 
-const deleteNotebooks = (id) => ({
-    type: DELETE_NOTEBOOKS,
+const deleteNote = (id) => ({
+    type: DELETE_NOTE,
     id
 })
 
-export const postNotebookThunk = ({ name }) => async (dispatch) => {
-    const res = await fetch("/api/notebooks/new", {
+export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) => {
+    const res = await fetch("/api/notes/new", {
         method: "POST",
         headers: {
             "Content-Type": "applicatin/json"
         },
         body: JSON.stringify({
-            name
+            title,
+            body,
+            notebooks
         })
     })
     if (res.ok) {
         const notebook = await res.json()
-        dispatch(newNotebook(notebook))
+        dispatch(newNote(notebook))
         return notebook
     }
 }
 
-export const editNotebookThunk = ({ name }) => async (dispatch) => {
-    const res = await fetch(`/api/notebooks/${id}`, {
+export const editNoteThunk = (id, notebook) => async (dispatch) => {
+    const { title, body, notebook_id } = notebook
+    const res = await fetch(`/api/notes/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            name
+            title,
+            body,
+            notebook_id
         })
     })
     if (res.ok) {
         const notebook = await res.json()
-        dispatch(editNotebook(notebook))
+        dispatch(editNote(notebook))
         return notebook
     }
 }
 
-export const getNotebooksThunk = () => async (dispatch) => {
+export const getNotesThunk = () => async (dispatch) => {
     const res = await fetch("/api/notebooks")
     if (res.ok) {
         const notebooks = res.json()
-        dispatch(getNotebooks(notebooks))
+        dispatch(getNotes(notebooks))
         return notebooks
     }
 }
 
-export const deleteNotebooksThunk = (id) => async (dispatch) => {
+export const deleteNoteThunk = (id) => async (dispatch) => {
     const res = await fetch(`/api/notebooks/${id}`, {
         method: "DELETE"
     })
     if (res.ok) {
         const deleted = res.json()
-        dispatch(deleteNotebooks(id))
+        dispatch(deleteNote(id))
         return deleted
     }
 }
