@@ -8,6 +8,7 @@ body.splash-body {
     padding-top: 140px;
     font-family: "Soleil", Arial, Helvetica, sans-serif;
     color: #000;
+    background: #ffffff;
     font-size: 16px;
     line-height: 22px;
     /* transition: padding-top .2s; */
@@ -21,4 +22,17 @@ body.login-body {
     align-items: center;
     justify-content: center;
     margin: 0;
+}
+
+body.dashboard-body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+    color-scheme: dark;
 }
