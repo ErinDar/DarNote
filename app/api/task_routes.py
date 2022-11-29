@@ -39,9 +39,11 @@ def edit_task(id):
     if current_user.id == task.author_id:
         form = TaskForm()
         form['csrf_token'].data = request.cookies['csrf_token']
+        notebook_options = Notebook.query.filter(current_user.id == Notebook.owner_id)
+        form.notebooks.choices = [(t.id, t.name) for t in notebook_options]
         if form.validate_on_submit():
             task.body = form.data['body']
-            task.notebook_id = form.data['notebook_id']
+            task.notebook_id = form.notebooks.data
             db.session.add(task)
             db.session.commit()
             return task.to_dict()

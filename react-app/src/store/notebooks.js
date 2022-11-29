@@ -27,7 +27,7 @@ export const postNotebookThunk = ({ name }) => async (dispatch) => {
     const res = await fetch("/api/notebooks/new", {
         method: "POST",
         headers: {
-            "Content-Type": "applicatin/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             name

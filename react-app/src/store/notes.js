@@ -3,19 +3,19 @@ const EDIT_NOTE = "notebooks/EDIT_NOTE"
 const GET_NOTES = "notebooks/GET_NOTES"
 const DELETE_NOTE = "notebooks/DELETE_NOTE"
 
-const newNote = (notebook) => ({
+const newNote = (note) => ({
     type: NEW_NOTE,
-    notebook
+    note
 })
 
-const editNote = (notebook) => ({
+const editNote = (note) => ({
     type: EDIT_NOTE,
-    notebook
+    note
 })
 
-const getNotes = (notebooks) => ({
+const getNotes = (notes) => ({
     type: GET_NOTES,
-    notebooks
+    notes
 })
 
 const deleteNote = (id) => ({
@@ -27,7 +27,7 @@ export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) =>
     const res = await fetch("/api/notes/new", {
         method: "POST",
         headers: {
-            "Content-Type": "applicatin/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             title,
@@ -36,14 +36,14 @@ export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) =>
         })
     })
     if (res.ok) {
-        const notebook = await res.json()
-        dispatch(newNote(notebook))
-        return notebook
+        const note = await res.json()
+        dispatch(newNote(note))
+        return note
     }
 }
 
-export const editNoteThunk = (id, notebook) => async (dispatch) => {
-    const { title, body, notebook_id } = notebook
+export const editNoteThunk = (id, note) => async (dispatch) => {
+    const { title, body, notebook_id } = note
     const res = await fetch(`/api/notes/${id}`, {
         method: "PUT",
         headers: {
@@ -56,23 +56,23 @@ export const editNoteThunk = (id, notebook) => async (dispatch) => {
         })
     })
     if (res.ok) {
-        const notebook = await res.json()
-        dispatch(editNote(notebook))
-        return notebook
+        const note = await res.json()
+        dispatch(editNote(note))
+        return note
     }
 }
 
 export const getNotesThunk = () => async (dispatch) => {
-    const res = await fetch("/api/notebooks")
+    const res = await fetch("/api/notes")
     if (res.ok) {
-        const notebooks = res.json()
-        dispatch(getNotes(notebooks))
-        return notebooks
+        const notes = res.json()
+        dispatch(getNotes(notes))
+        return notes
     }
 }
 
 export const deleteNoteThunk = (id) => async (dispatch) => {
-    const res = await fetch(`/api/notebooks/${id}`, {
+    const res = await fetch(`/api/notes/${id}`, {
         method: "DELETE"
     })
     if (res.ok) {
@@ -87,18 +87,18 @@ const initialState = {}
 export default function notebooks(state = initialState, action) {
     let newState = {};
     switch (action.type) {
-        case NEW_NOTEBOOK:
+        case NEW_NOTE:
             newState = { ...state }
-            newState[action.notebook.id] = action.notebook
+            newState[action.note.id] = action.note
             return newState
-        case EDIT_NOTEBOOK:
+        case EDIT_NOTE:
             newState = { ...state }
-            newState[action.notebook.id] = action.notebook
+            newState[action.note.id] = action.note
             return newState
-        case GET_NOTEBOOKS:
-            newState = { ...action.notebooks }
+        case GET_NOTES:
+            newState = { ...action.notes }
             return newState
-        case DELETE_NOTEBOOKS:
+        case DELETE_NOTE:
             newState = { ...state }
             delete newState[action.id]
             return newState
