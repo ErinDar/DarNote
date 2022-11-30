@@ -111,14 +111,35 @@ export default function Dashboard() {
                                                 </section>
                                                 <section className='tags-quad-body'>
                                                     <div className='tags-quad-container'>
+                                                        {/* if there are no tags */}
                                                         <div className='tags-quad-wrapper'>
                                                             <p className='empty-tags-message'>Tag notes with keywords to make them easier to find.</p>
                                                             <div className='empty-new-tags-button-container'>
                                                                 <div className='empty-new-tags-button-wrapper'>
-                                                                    <button className='empty-new-tags-button'></button>
+                                                                    <button className='empty-new-tags-button'>
+                                                                        <span className='empty-new-tags-button-title'>Create new tag</span>
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        {/* end if there are no tags */}
+                                                    </div>
+                                                </section>
+                                            </article>
+                                        </div>
+                                        <div className='notebooks-dashboard-quad'>
+                                            <article className='notebooks-quad-container'>
+                                                <section className='notebooks-quad-header'>
+                                                    <div className='notebooks-quad-title-container'>
+                                                        <button className='notebooks-view-button'>
+                                                            <h2 className='notebooks-view-title'>notebooks</h2>
+                                                            <svg className='task-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
+                                                                <g fill="none" fill-rule="evenodd">
+                                                                    <path d="M0 0h8v8H0z" />
+                                                                    <path stroke="#1191f6" d="M2.5 1.5l3 3-3 3" />
+                                                                </g>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 </section>
                                             </article>
