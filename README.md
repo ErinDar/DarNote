@@ -23,7 +23,7 @@ DarNote is a full-stack clone of Evernote which is one of the best note-taking w
 ## Splash Page
 <!-- [add images/gif from finished site] -->
 
-## Login/Sign Up Modal
+## Login/Sign Up
 <!-- [add images/gif from finished site] -->
 
 ## Dashboard
