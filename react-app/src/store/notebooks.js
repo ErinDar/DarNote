@@ -40,7 +40,8 @@ export const postNotebookThunk = ({ name }) => async (dispatch) => {
     }
 }
 
-export const editNotebookThunk = ({ name }) => async (dispatch) => {
+export const editNotebookThunk = (id, notebook) => async (dispatch) => {
+    const { name } = notebook
     const res = await fetch(`/api/notebooks/${id}`, {
         method: "PUT",
         headers: {

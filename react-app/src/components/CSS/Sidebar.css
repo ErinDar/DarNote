@@ -41,7 +41,7 @@
     display: flex;
     padding-bottom: 8px;
     flex: 50;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     overflow: hidden;
     list-style: none;
     border: 0;
@@ -84,6 +84,25 @@
     box-sizing: border-box;
 }
 
+.user-image-holder {
+    position: relative;
+    box-sizing: border-box;
+    height: 28px;
+    width: 28px;
+}
+
+.user-image {
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    background-color: transparent;
+    background-size: cover;
+    min-width: inherit;
+    background-position: 50%;
+    border-radius: 28px;
+    display: inline-flex;
+}
+
 .user-name-holder {
     display: flex;
     flex-direction: column;
@@ -108,4 +127,180 @@
     text-align: left;
     text-overflow: ellipsis;
     box-sizing: border-box;
+}
+
+.evernote-svg {
+    display: inline-block;
+    stroke: #a6a6a6;
+    flex-shrink: 0;
+    height: 8px;
+    margin-left: 9px;
+    width: 8px;
+}
+
+svg {
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.sidebar-search-new-section {
+    padding-bottom: 8px;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.sidebar-search-container {
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.sidebar-search-wrapper {
+    margin: 0 12px;
+    padding: 2px 0 3px;
+    box-sizing: border-box;
+}
+
+.sidebar-search {
+    background: #404040;
+    border-radius: 40px;
+    outline: 1px solid transparent;
+    padding: 0 14px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.search-mag-glass {
+    color: #ccc;
+    left: 6px;
+    position: absolute;
+    top: 6px;
+    box-sizing: border-box;
+}
+
+.search-bar {
+    box-sizing: border-box;
+    color: #ccc;
+    font-size: 14px;
+    height: 36px;
+    line-height: 30px;
+    padding: 0 12px 1px 18px;
+    width: 100%;
+    font-weight: 400;
+    overflow: visible;
+    background-color: transparent;
+    border-style: none;
+    margin: 0;
+}
+
+.search-drop-down-hidden {
+    width: 256px;
+    visibility: hidden;
+    box-shadow: 1px 0 4px rgb(0 0 0 /15%);
+    align-items: center;
+    background-color: #333;
+    border-radius: 4px 4px 0 0;
+    justify-content: center;
+    left: 9px;
+    margin-top: -45px;
+    outline: 1px solid transparent;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 10;
+}
+
+.search-drop-down-visible {}
+
+.search-drop-down-container {
+    padding: 3px 0;
+}
+
+.search-drop-down-wrapper {
+    background: #333;
+    border-radius: 40px;
+    padding: 0 14px;
+    position: relative;
+}
+
+.dropdown-mag-glass {
+    left: -1px;
+    top: 4px;
+    color: #ccc;
+    position: absolute;
+}
+
+.search-dropdown-bar {
+    box-sizing: border-box;
+    caret-color: #e6efe6;
+    color: #e6efe6;
+    font-size: 14px;
+    height: 30px;
+    width: 100%;
+    padding: 0 5px 0 10px;
+    font-weight: 400;
+    overflow: visible;
+    background-color: transparent;
+    border-style: none;
+    margin: 0;
+}
+
+.sidebar-new-container {
+    max-width: 300px;
+    position: relative;
+}
+
+.sidebar-new-wrapper {
+    align-items: center;
+    color: #000;
+    display: flex;
+    margin: 8px 12px;
+}
+
+.sidebar-new-button {
+    display: inline-flex;
+    background-color: #4488D1;
+    border-radius: 20px;
+    height: 36px;
+    justify-content: left;
+    outline: 1px solid transparent;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    overflow: visible;
+    border-style: none;
+    cursor: pointer;
+    transition: box-shadow .1s ease-in-out;
+}
+
+.sidebar-new-button:hover {
+    box-shadow: 0 40px 12px rgba(28, 28, 29, 0.25) inset, 0 -40px 12px rgba(70, 150, 240, 0.25) inset;
+}
+
+.new-create-icon {
+    margin-left: 6px;
+    margin-right: 2px;
+    min-width: 24px;
+}
+
+.new-button-arrow {
+    position: absolute;
+    right: 20px;
+    stroke: #fff;
 }

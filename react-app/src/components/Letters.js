@@ -1,4 +1,4 @@
-export default letterArray = [
+const letterArray = [
     "A",
     "B",
     "C",
@@ -26,3 +26,5 @@ export default letterArray = [
     "Y",
     "Z"
 ]
+
+export default letterArray
