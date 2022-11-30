@@ -14,4 +14,8 @@ class Notebook(db.Model):
     users = db.relationship("User", back_populates="notebooks")
 
     def to_dict(self):
-        return {"id": self.id, "name": self.name, "owner_id": self.owner_id}
+        return {
+            "id": self.id, 
+            "name": self.name, 
+            "owner_id": self.owner_id
+            }

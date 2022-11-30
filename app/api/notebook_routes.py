@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Notebook, db
+from app.models import Notebook, db, Note
 from app.forms import NotebookForm
 
 notebook_routes = Blueprint("notebooks", __name__)
@@ -59,3 +59,15 @@ def delete_notebook(id):
         db.session.commit()
         return {"data": "Deleted"}
     return {"errors": ["Unauthorized"]}
+
+# ================================= Notes by notebook ===============================
+
+@notebook_routes.route("/<int:id>/notes", methods=['GET'])
+@login_required
+def get_notebook_notes(id):
+    notebooks = Notebook.query.filter(Notebook.owner_id == current_user.id)
+    target_notebook = [notebook for notebook in notebooks if id == notebook.id]
+    if target_notebook:
+        notes = Note.query.filter(Note.notebook_id == id)
+        return {note.to_dict()["id"]: note.to_dict() for note in notes}
+    return {"errors": ['Unauthorized']}
