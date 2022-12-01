@@ -295,6 +295,7 @@ svg {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
+    text-align: left;
 }
 
 
