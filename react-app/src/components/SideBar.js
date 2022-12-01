@@ -35,9 +35,9 @@ export default function Sidebar() {
                                                         {user.first_name} {user.last_name}
                                                     </div>
                                                     <div><LogoutButton /></div>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8' className='evernote-svg'>
+                                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8' className='evernote-svg'>
                                                         <path fill="none" d="M7 2L4 5 1 2"></path>
-                                                    </svg>
+                                                    </svg> */}
                                                 </div>
                                             </div>
                                         </span>

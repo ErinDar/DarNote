@@ -60,7 +60,7 @@ export default function NotebookForm({ setNotebookForm }) {
             <div className='dash-new-notebook-action-buttons'>
                 <div className='action-buttons'>
                     <button className='cancel-new-notebook-dash' onClick={() => setNotebookForm(false)}>Cancel</button>
-                    <button className='create-new-notebook-dash-active' onClick={newNotebook}>Create</button>
+                    <button className={name.length >= 3 ? 'create-new-notebook-dash-active' : 'create-new-notebook-dash-disabled'} onClick={newNotebook}>Create</button>
                 </div>
             </div>
         </>

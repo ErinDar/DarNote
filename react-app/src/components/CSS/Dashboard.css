@@ -210,6 +210,8 @@ svg {
     overflow: hidden;
     position: relative;
     width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .notes-quad-container,
@@ -232,6 +234,80 @@ svg {
     float: left;
     height: 100%;
     padding: 18px 5px 5px 17px;
+}
+
+.create-note-paper {
+    background-color: #262626;
+    box-shadow: rgba(0, 0, 6px) rgba(0, 0, 0, 0.2);
+    flex: none;
+    height: 258px;
+    margin: 0 12px 0 0;
+    max-height: 258px;
+    width: 172px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 2px solid transparent;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.go-to-note-button {
+    box-shadow: rgba(0, 0, 6px) rgba(0, 0, 0, 0.2);
+    flex: none;
+    height: 258px;
+    margin: 0 12px 0 0;
+    max-height: 258px;
+    width: 172px;
+    background-color: #262626;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 2px solid transparent;
+    position: relative;
+}
+
+.notes-button {
+    height: 100%;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.notes-button-header {
+    padding: 0 16px;
+}
+
+.notes-button-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+
+.notes-button-body {
+    color: #a6a6a6;
+    font-size: 14px;
+    line-height: 18px;
+    padding-bottom: 2px;
+    text-align: left;
+    max-width: 100%;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .task-quad-body {
@@ -388,7 +464,8 @@ svg {
 }
 
 .create-notebook-book:hover,
-.notebook-item:hover {
+.notebook-item:hover,
+.create-note-paper:hover {
     background: rgba(152, 152, 152, 0.149);
 }
 

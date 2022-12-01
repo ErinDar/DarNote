@@ -14,9 +14,9 @@ export default function Dashboard() {
     const history = useHistory()
     // const user = useSelector(state => state.session.user)
     const notebooks = Object.values(useSelector(state => state.notebooks)).reverse()
-    // const notes = useSelector(state => state.notes)
+    const notes = Object.values(useSelector(state => state.notes)).reverse()
     // const task = useSelector(state => state.task)
-    const [notebookForm, setNotebookForm] = useState(true)
+    const [notebookForm, setNotebookForm] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
     const location = useLocation()
     const body = document.querySelector("body")
@@ -56,7 +56,7 @@ export default function Dashboard() {
                                                 <article className='notes-quad-container'>
                                                     <section className='notes-quad-header'>
                                                         <div className='notes-quad-title-container'>
-                                                            <button className='notes-view-button'>
+                                                            <button className='notes-view-button' onClick={() => history.push('/notes')}>
                                                                 <h2 className='notes-view-title'>notes</h2>
                                                                 <svg className='notes-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
                                                                     <g fill="none" fillRule="evenodd">
@@ -71,7 +71,25 @@ export default function Dashboard() {
                                                         <div className='notes-quad-container'>
                                                             <div className='notes-container'>
                                                                 <div className='notes-wrapper'>
-                                                                    {/* enter notes */}
+                                                                    {notes[0] && notes.map((note) => (
+                                                                        <button className='go-to-note-button'>
+                                                                            <div className='notes-button'>
+                                                                                <div className='notes-button-header'>
+                                                                                    <div className='notes-button-title'>{note.title}</div>
+                                                                                    <div className='notes-button-body'>
+                                                                                        <span>{note.body}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </button>
+                                                                    ))}
+                                                                    <div className='create-note-paper'>
+                                                                        <div className='create-notebook-body' onClick={() => history.push('/notes')}>
+                                                                            <p className='create-notebook-title'>Create new note</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='notebook-side-left'></div>
+                                                                    <div className='notebook-side-right'></div>
                                                                 </div>
                                                             </div>
                                                         </div>
