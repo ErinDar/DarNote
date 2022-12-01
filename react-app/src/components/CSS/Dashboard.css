@@ -36,7 +36,6 @@
 
 .main-body-container {
     margin-right: 0px;
-    /* scroll-snap-type: y proximity; */
     background-color: #000;
     border-left: 1px solid #262626;
     flex: 1;
@@ -46,6 +45,8 @@
     position: relative;
     z-index: 1;
 }
+
+/* have to figure out how to crete the scrolling effect on evernote */
 
 /* .main-body-container-scroll {
     margin-right: 0px;
@@ -372,6 +373,27 @@ svg {
     float: left;
     height: 100%;
     padding: 18px 5px 5px 17px;
+}
+
+
+.dashboard-footer {
+    height: 30px;
+    display: flex;
+    background-color: #4488D1;
+    /* position: relative; */
+    z-index: 1000;
+}
+
+.dashboard-footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 15px;
+}
+
+
+.footer-items-dashboard {
+    display: flex;
 }
 
 /* media queries */

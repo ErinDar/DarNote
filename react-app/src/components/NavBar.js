@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Darnote from './assets/Darnote_logo.svg'
+import DarnoteLogo from './assets/Darnote-177-40.svg'
 import "./CSS/SplashPage.css"
 
 const NavBar = () => {
@@ -26,7 +27,7 @@ const NavBar = () => {
         <div className='nav-bar'>
           <div className='logo'>
             <NavLink to="/" className="logo-link">
-              <img src={Darnote} alt="Darnote logo" className='logo-image' />
+              <img src={DarnoteLogo} alt="Darnote logo" className='logo-image' />
             </NavLink>
           </div>
           <nav className='main-nav'>
