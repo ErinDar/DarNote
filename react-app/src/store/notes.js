@@ -65,7 +65,7 @@ export const editNoteThunk = (id, note) => async (dispatch) => {
 export const getNotesThunk = () => async (dispatch) => {
     const res = await fetch("/api/notes")
     if (res.ok) {
-        const notes = res.json()
+        const notes = await res.json()
         dispatch(getNotes(notes))
         return notes
     }
@@ -76,7 +76,7 @@ export const deleteNoteThunk = (id) => async (dispatch) => {
         method: "DELETE"
     })
     if (res.ok) {
-        const deleted = res.json()
+        const deleted = await res.json()
         dispatch(deleteNote(id))
         return deleted
     }

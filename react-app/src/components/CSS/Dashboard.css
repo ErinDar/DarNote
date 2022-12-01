@@ -189,7 +189,8 @@
 }
 
 .notes-view-icon,
-.task-view-icon {
+.task-view-icon,
+.notebooks-view-icon {
     flex-shrink: 0;
     height: 11px;
     width: 11px;
@@ -201,7 +202,8 @@ svg {
     vertical-align: middle;
 }
 
-.notes-quad-body {
+.notes-quad-body,
+.notebooks-quad-body {
     border-radius: 0 0 8px 8px;
     flex: 1 1 auto;
     overflow: hidden;
@@ -209,7 +211,8 @@ svg {
     width: 100%;
 }
 
-.notes-quad-container {
+.notes-quad-container,
+.notebooks-quad-container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -354,6 +357,21 @@ svg {
     display: inline-block;
     max-width: 100%;
     padding: 0 24px;
+}
+
+.notebooks-quad-wrapper {
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.notebooks-wrapper {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 100%;
+    padding: 18px 5px 5px 17px;
 }
 
 /* media queries */

@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useLocation } from 'react-router-dom'
 import Sidebar from './SideBar'
 import background from './assets/dashboard-image.png'
+import * as notebookActions from '../store/notebooks'
+import * as notesActions from '../store/notes'
 import "./CSS/Dashboard.css"
-import { useSelector } from 'react-redux'
 
 export default function Dashboard() {
-    const task = useSelector(state => state.task)
-    const [haveTask, setHaveTask] = useState(false)
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
+    const notebooks = useSelector(state => state.notebooks)
+    const notes = useSelector(state => state.notes)
+    // const task = useSelector(state => state.task)
+    const [isLoaded, setIsLoaded] = useState(false)
     const location = useLocation()
     const body = document.querySelector("body")
     const classes = body.classList
@@ -17,8 +23,14 @@ export default function Dashboard() {
         document.body.classList.add("dashboard-body")
     }
 
-    if (task) {
-        setHaveTask(true)
+    useEffect(() => {
+        dispatch(notebookActions.getNotebooksThunk())
+            .then(() => dispatch(notesActions.getNotesThunk()))
+            .then(() => setIsLoaded(true))
+    }, [dispatch])
+
+    if (!isLoaded) {
+        return null
     }
     return (
         <div className='dashboard'>
@@ -42,7 +54,7 @@ export default function Dashboard() {
                                                         <button className='notes-view-button'>
                                                             <h2 className='notes-view-title'>notes</h2>
                                                             <svg className='notes-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
-                                                                <g fill="none" fill-rule="evenodd">
+                                                                <g fill="none" fillRule="evenodd">
                                                                     <path d="M0 0h8v8H0z" />
                                                                     <path stroke="#1191f6" d="M2.5 1.5l3 3-3 3" />
                                                                 </g>
@@ -54,7 +66,7 @@ export default function Dashboard() {
                                                     <div className='notes-quad-container'>
                                                         <div className='notes-container'>
                                                             <div className='notes-wrapper'>
-
+                                                                {/* enter notes */}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -68,7 +80,7 @@ export default function Dashboard() {
                                                         <button className='task-view-button'>
                                                             <h2 className='task-view-title'>my tasks</h2>
                                                             <svg className='task-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
-                                                                <g fill="none" fill-rule="evenodd">
+                                                                <g fill="none" fillRule="evenodd">
                                                                     <path d="M0 0h8v8H0z" />
                                                                     <path stroke="#1191f6" d="M2.5 1.5l3 3-3 3" />
                                                                 </g>
@@ -101,7 +113,7 @@ export default function Dashboard() {
                                                         <button className='tags-view-button'>
                                                             <h2 className='tags-view-title'>tags</h2>
                                                             <svg className='task-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
-                                                                <g fill="none" fill-rule="evenodd">
+                                                                <g fill="none" fillRule="evenodd">
                                                                     <path d="M0 0h8v8H0z" />
                                                                     <path stroke="#1191f6" d="M2.5 1.5l3 3-3 3" />
                                                                 </g>
@@ -133,13 +145,22 @@ export default function Dashboard() {
                                                     <div className='notebooks-quad-title-container'>
                                                         <button className='notebooks-view-button'>
                                                             <h2 className='notebooks-view-title'>notebooks</h2>
-                                                            <svg className='task-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
-                                                                <g fill="none" fill-rule="evenodd">
+                                                            <svg className='notebooks-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
+                                                                <g fill="none" fillRule="evenodd">
                                                                     <path d="M0 0h8v8H0z" />
                                                                     <path stroke="#1191f6" d="M2.5 1.5l3 3-3 3" />
                                                                 </g>
                                                             </svg>
                                                         </button>
+                                                    </div>
+                                                </section>
+                                                <section className='notebooks-quad-body'>
+                                                    <div className='notebooks-quad-container'>
+                                                        <div className='notebooks-quad-wrapper'>
+                                                            <div className='notebooks-wrapper'>
+                                                                {/* add notebooks here */}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </section>
                                             </article>

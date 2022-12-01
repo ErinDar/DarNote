@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import SplashPage from './components/SplashPage';
@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +28,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        {/* do not want to be able to go back to the splash page after log in */}
         <Route path='/' exact={true} >
-          <SplashPage />
+          {user == null ? <SplashPage /> : <Redirect to="/dashboard" />}
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -39,9 +41,6 @@ function App() {
         <ProtectedRoute path='/dashboard' exact={true} >
           <Dashboard />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
