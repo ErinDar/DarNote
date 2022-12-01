@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Darnote from './assets/Darnote_logo.svg'
+// import Darnote from './assets/Darnote_logo.svg'
 import DarnoteLogo from './assets/Darnote-177-40.svg'
 import "./CSS/SplashPage.css"
 

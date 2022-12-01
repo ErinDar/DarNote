@@ -6,7 +6,6 @@ import SignUpForm from './components/auth/SignUpForm';
 import SplashPage from './components/SplashPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard'
-import User from './components/User';
 import { authenticate } from './store/session';
 
 function App() {

@@ -1,0 +1,195 @@
+.new-notebook-header {
+    display: block;
+    padding: 20px 25px 10px;
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+}
+
+.new-header-items {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-header-title {
+    word-wrap: break-word;
+    color: #e6e6e6;
+    flex-grow: 1;
+    font-size: 18px;
+    margin: 0;
+    max-width: 500px;
+    font-weight: 500;
+    border: 0;
+    padding: 0;
+}
+
+.new-header-items button {
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+    border-style: none;
+    font-size: 1em;
+    margin: 0;
+}
+
+.exit-button {
+    width: 24;
+    height: 24;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.new-notebook-tagline {
+    padding-top: 5px;
+    color: #a6a6a6;
+    font-size: 14px;
+    font-weight: inherit;
+    line-height: 20px;
+    margin: 0;
+    max-width: 500px;
+    border: 0;
+}
+
+.new-notebook-dash-form {
+    padding: 0 25px;
+}
+
+.form-name {
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+.form-name-input {
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: text;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 0 8px;
+    transition: border .18s ease-in-out;
+}
+
+.form-name-input:focus-within {
+    border: 1px solid #00a3f4;
+}
+
+/* add on click border change */
+
+.form-name-input-field {
+    transition: border .18s ease-in-out;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    color: #e6e6e6;
+    outline: none;
+    width: 100%;
+    z-index: 1;
+    overflow: visible;
+    margin: 0;
+}
+
+.form-name-input-field:focus-visible {
+    outline-offset: 0px;
+}
+
+.spacer {
+    min-height: 58px;
+    padding-top: 8px;
+}
+
+
+.dash-new-notebook-action-buttons {
+    border-top: 1px solid #333;
+    position: relative;
+    padding: 20px 25px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-top: 0;
+    width: 100%;
+}
+
+.cancel-new-notebook-dash {
+    margin: 0 10px 0 0;
+    order: 1;
+    background-color: transparent;
+    border: 1px solid #737373;
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 10px 15px;
+    transition: background .1s ease-out, border .1s ease-out;
+    cursor: pointer;
+}
+
+.cancel-new-notebook-dash:hover {
+    background: #e6e6e62f;
+    border: 1px solid #fff;
+}
+
+.create-new-notebook-dash-disabled {
+    cursor: not-allowed;
+    background-color: #404040;
+    border: 1px solid #404040;
+    color: #737373;
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.create-new-notebook-dash-active {
+    margin: 0;
+    background-color: #4488d1;
+    border: 1px solid #1e57dc;
+    color: #000;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 4px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 10px 15px;
+
+}
+
+.create-new-notebook-dash-active:hover {
+    background-color: #7fb3eb;
+}
+
+/* media queries */
+
+@media screen and (max-height: 400px) {
+    .new-notebook-tagline {
+        padding-top: 10px;
+    }
+
+    .dash-new-notebook-action-buttons {
+        padding: 10px 25px;
+    }
+}

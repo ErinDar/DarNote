@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { Modal } from '../context/Modal'
 import Sidebar from './SideBar'
+import NotebookForm from './Forms/NotebookForm'
 import background from './assets/dashboard-image.png'
 import * as notebookActions from '../store/notebooks'
 import * as notesActions from '../store/notes'
@@ -9,10 +11,11 @@ import "./CSS/Dashboard.css"
 
 export default function Dashboard() {
     const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
-    const notebooks = useSelector(state => state.notebooks)
-    const notes = useSelector(state => state.notes)
+    // const user = useSelector(state => state.session.user)
+    const notebooks = Object.values(useSelector(state => state.notebooks)).reverse()
+    // const notes = useSelector(state => state.notes)
     // const task = useSelector(state => state.task)
+    const [notebookForm, setNotebookForm] = useState(true)
     const [isLoaded, setIsLoaded] = useState(false)
     const location = useLocation()
     const body = document.querySelector("body")
@@ -159,7 +162,20 @@ export default function Dashboard() {
                                                         <div className='notebooks-quad-container'>
                                                             <div className='notebooks-quad-wrapper'>
                                                                 <div className='notebooks-wrapper'>
-                                                                    {/* add notebooks here */}
+                                                                    {notebooks[0] && notebooks.map((notebook) => (
+                                                                        <article className='notebook-item'>
+                                                                            <div className='notebook-item-body'>
+                                                                                <h2 className='notebook-item-title'>{notebook.name}</h2>
+                                                                            </div>
+                                                                        </article>
+                                                                    ))}
+                                                                    <article className='create-notebook-book'>
+                                                                        <div className='create-notebook-body' onClick={() => setNotebookForm(true)}>
+                                                                            <p className='create-notebook-title'>Create new notebook</p>
+                                                                        </div>
+                                                                    </article>
+                                                                    <div className='notebook-side-left'></div>
+                                                                    <div className='notebook-side-right'></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,7 +190,11 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            {/* <Footer /> */}
+            {notebookForm && (
+                <Modal onClose={() => setNotebookForm(false)}>
+                    <NotebookForm setNotebookForm={setNotebookForm} />
+                </Modal>
+            )}
         </>
     )
 }
