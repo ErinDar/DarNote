@@ -97,13 +97,15 @@
 
 .notes-dashboard-quad,
 .task-dashboard-quad,
-.tags-dashboard-quad {
+.tags-dashboard-quad,
+.notebooks-dashboard-quad {
     z-index: 1;
 }
 
 .notes-quad-container,
 .task-quad-container,
-.tags-quad-container {
+.tags-quad-container,
+.notebooks-quad-container {
     background-color: #1a1a1a;
     border-radius: 8px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14902);
@@ -118,7 +120,8 @@
 
 .notes-quad-header,
 .task-quad-header,
-.tags-quad-header {
+.tags-quad-header,
+.notebooks-quad-header {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -129,7 +132,8 @@
 
 .notes-quad-title-container,
 .task-quad-title-container,
-.tags-quad-title-container {
+.tags-quad-title-container,
+.notebooks-quad-title-container {
     flex: 1 1 auto;
     line-height: 1;
     margin: 0 10px 0 12px;
@@ -140,7 +144,8 @@
 
 .notes-view-button,
 .task-view-button,
-.tags-view-button {
+.tags-view-button,
+.notebooks-view-button {
     display: flex;
     align-items: center;
     border-radius: 3px;
@@ -156,9 +161,17 @@
     cursor: pointer;
 }
 
+.notes-view-button:hover,
+.task-view-button:hover,
+.tags-view-button:hover,
+.notebooks-view-button:hover {
+    background-color: #737373;
+}
+
 .notes-view-title,
 .task-view-title,
-.tags-view-title {
+.tags-view-title,
+.notebooks-view-title {
     display: inline-block;
     font-size: 14px;
     line-height: 16px;
@@ -176,7 +189,8 @@
 }
 
 .notes-view-icon,
-.task-view-icon {
+.task-view-icon,
+.notebooks-view-icon {
     flex-shrink: 0;
     height: 11px;
     width: 11px;
@@ -188,7 +202,8 @@ svg {
     vertical-align: middle;
 }
 
-.notes-quad-body {
+.notes-quad-body,
+.notebooks-quad-body {
     border-radius: 0 0 8px 8px;
     flex: 1 1 auto;
     overflow: hidden;
@@ -196,7 +211,8 @@ svg {
     width: 100%;
 }
 
-.notes-quad-container {
+.notes-quad-container,
+.notebooks-quad-container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -282,11 +298,13 @@ svg {
     transition: border .2s linear;
 }
 
-.empty-new-task-button:hover {
+.empty-new-task-button:hover,
+.empty-new-tags-button:hover {
     border: 1px solid #4488D1
 }
 
-.empty-new-task-button-title {
+.empty-new-task-button-title,
+.empty-new-tags-button-title {
     display: inline-block;
     overflow: hidden;
     padding: 7px 16px;
@@ -341,6 +359,21 @@ svg {
     padding: 0 24px;
 }
 
+.notebooks-quad-wrapper {
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.notebooks-wrapper {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 100%;
+    padding: 18px 5px 5px 17px;
+}
+
 /* media queries */
 
 @media screen and (min-width: 1020px) {
@@ -348,7 +381,11 @@ svg {
         grid-column: span 2;
     }
 
-    .task-dashboard-grid {
+    .task-dashboard-quad {
+        grid-column: span 1;
+    }
+
+    .notebooks-dashboard-quad {
         grid-column: span 1;
     }
 }

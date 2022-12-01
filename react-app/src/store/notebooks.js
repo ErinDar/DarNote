@@ -61,7 +61,7 @@ export const editNotebookThunk = (id, notebook) => async (dispatch) => {
 export const getNotebooksThunk = () => async (dispatch) => {
     const res = await fetch("/api/notebooks")
     if (res.ok) {
-        const notebooks = res.json()
+        const notebooks = await res.json()
         dispatch(getNotebooks(notebooks))
         return notebooks
     }
@@ -72,7 +72,7 @@ export const deleteNotebooksThunk = (id) => async (dispatch) => {
         method: "DELETE"
     })
     if (res.ok) {
-        const deleted = res.json()
+        const deleted = await res.json()
         dispatch(deleteNotebooks(id))
         return deleted
     }

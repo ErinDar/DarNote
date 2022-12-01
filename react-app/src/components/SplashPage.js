@@ -107,7 +107,10 @@ export default function SplashPage() {
                             <p className="section-header">Contact</p>
                             <ul>
                                 <li>
-                                    <NavLink to="https://github.com/ErinDar" className="section-link">GitHub</NavLink>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/ErinDar" className="section-link">GitHub</a>
+                                </li>
+                                <li>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/erin-malone-8a1917b9/" className="section-link">Linkedin</a>
                                 </li>
                             </ul>
                         </div>

@@ -299,6 +299,10 @@ svg {
     min-width: 24px;
 }
 
+.new-button-name {
+    color: #fff;
+}
+
 .new-button-arrow {
     position: absolute;
     right: 20px;
