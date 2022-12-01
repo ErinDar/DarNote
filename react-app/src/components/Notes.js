@@ -10,6 +10,6 @@ import * as notesActions from '../store/notes'
 
 export default function Note() {
     return (
-        null
+        <div>No content yet </div>
     )
 }
