@@ -14,9 +14,8 @@ export default function NotebookForm({ setNotebookForm }) {
         const notebook = await dispatch(notebookActions.postNotebookThunk({ name }))
             .catch(async (res) => {
                 const notebookErrors = await res.json()
-                if (notebookErrors) {
-                    console.log("notebook errors", notebookErrors)
-                    // setErrors(Object.values(notebookErrors))
+                if (notebook && notebookErrors) {
+                    setErrors(Object.values(notebookErrors.errors))
                 }
             })
         if (notebook) setNotebookForm(false)
@@ -46,9 +45,6 @@ export default function NotebookForm({ setNotebookForm }) {
                 <h2 className='new-notebook-tagline'>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</h2>
             </header>
             <form className="new-notebook-dash-form">
-                <ul className='error-messages'>
-                    {errors.map((error, idx) => <li key={idx} className='errors'>*{error}</li>)}
-                </ul>
                 <label className='form-name'>Name</label>
                 <div className='form-name-input'>
                     <input

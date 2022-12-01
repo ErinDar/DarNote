@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Modal } from '../context/Modal'
 import Sidebar from './SideBar'
 import NotebookForm from './Forms/NotebookForm'
@@ -11,6 +11,7 @@ import "./CSS/Dashboard.css"
 
 export default function Dashboard() {
     const dispatch = useDispatch()
+    const history = useHistory()
     // const user = useSelector(state => state.session.user)
     const notebooks = Object.values(useSelector(state => state.notebooks)).reverse()
     // const notes = useSelector(state => state.notes)
@@ -147,7 +148,7 @@ export default function Dashboard() {
                                                 <article className='notebooks-quad-container'>
                                                     <section className='notebooks-quad-header'>
                                                         <div className='notebooks-quad-title-container'>
-                                                            <button className='notebooks-view-button'>
+                                                            <button className='notebooks-view-button' onClick={() => history.push('/notebooks')}>
                                                                 <h2 className='notebooks-view-title'>notebooks</h2>
                                                                 <svg className='notebooks-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
                                                                     <g fill="none" fillRule="evenodd">

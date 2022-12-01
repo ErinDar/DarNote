@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import SplashPage from './components/SplashPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard'
+import Notebook from './components/Notebooks'
 import { authenticate } from './store/session';
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/dashboard' exact={true} >
           <Dashboard />
+        </ProtectedRoute>
+        <ProtectedRoute path='/notebooks' exact={true} >
+          <Notebook />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
