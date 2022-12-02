@@ -12,7 +12,7 @@ export default function Sidebar() {
 
     let profilePic;
     if (user) {
-        const firstLetter = user.first_name.split("")[0]
+        const firstLetter = user.first_name.split("")[0].toUpperCase()
         const index = letterArray.indexOf(firstLetter)
         profilePic = imagesArray[index]
     }

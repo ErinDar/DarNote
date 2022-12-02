@@ -10,16 +10,12 @@ export default function NotebookForm({ setNotebookForm }) {
 
     const newNotebook = async (e) => {
         e.preventDefault();
-        setErrors([])
         const notebook = await dispatch(notebookActions.postNotebookThunk({ name }))
-            .catch(async (res) => {
-                const notebookErrors = await res.json()
-                if (notebook && notebookErrors) {
-                    setErrors(Object.values(notebookErrors.errors))
-                }
-            })
-        if (notebook) setNotebookForm(false)
+        if (notebook) {
+            setErrors(notebook)
+        }
     }
+
     return (
         <>
             <header className='new-notebook-header'>
@@ -55,6 +51,13 @@ export default function NotebookForm({ setNotebookForm }) {
                         className="form-name-input-field"
                     />
                 </div>
+                {!!errors.length && (
+                    <div className='error-messages'>
+                        {errors.map((err, idx) => (
+                            <div key={idx}>{err}</div>
+                        ))}
+                    </div>
+                )}
                 <div className='spacer'></div>
             </form>
             <div className='dash-new-notebook-action-buttons'>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useLocation, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { postNotebookThunk } from '../../store/notebooks';
 import Darnote from "../assets/submark.svg"
 import '../CSS/SignUpForm.css'
 
@@ -9,12 +10,13 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const name = "Default Notebook"
+
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
 
   const user = useSelector(state => state.session.user);
 
@@ -28,11 +30,9 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstName, lastName, email, password));
-      if (data) {
-        setErrors(data)
-      }
+    const data = await dispatch(signUp(firstName, lastName, email, password));
+    if (data) {
+      setErrors(data)
     }
   };
 
@@ -74,22 +74,30 @@ const SignUpForm = () => {
                   </div>)}
                 <div className='signup-form-email'>
                   <input
-                    name='email'
+                    name='first name'
                     type='text'
                     placeholder='First Name'
                     value={firstName}
                     onChange={updateFirstName}
                   />
                 </div>
+                {!!errors.length &&
+                  (<div className='error-messages'>
+                    {errors.filter(err => err.toLowerCase().includes("first name" || "characters"))}
+                  </div>)}
                 <div className='signup-form-email'>
                   <input
-                    name='email'
+                    name='last name'
                     type='text'
                     placeholder='Last Name'
                     value={lastName}
                     onChange={updateLastName}
                   />
                 </div>
+                {!!errors.length &&
+                  (<div className='error-messages'>
+                    {errors.filter(err => err.toLowerCase().includes("last name" || "characters"))}
+                  </div>)}
                 <div className='signup-form-email'>
                   <input
                     name='email'
@@ -127,7 +135,7 @@ const SignUpForm = () => {
           <div className="login-account">
             <div className='login-account-header'>Already have an account?</div>
             <div className='toggle-signup'>
-              <NavLink to="/signup" className="login-account-link">Log In</NavLink>
+              <NavLink to="/login" className="login-account-link">Log In</NavLink>
             </div>
           </div>
         </div>
@@ -137,60 +145,3 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
-
-
-{/* <div className='signup-page'>
-  <div className='signup-form'>
-    <div className='signup-form-header'>
-      <div className='signup-header-logo'>
-        <img src={Darnote} alt="Darnote submark" className='signup-logo' />
-      </div>
-      <p className='signup-form-tagline'>Remember everything important.</p>
-    </div>
-    <div className='signup-form-items'></div>
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <input
-          type='text'
-          name='firstName'
-          placeholder='First Name'
-          onChange={updateFirstName}
-          value={firstName}
-        ></input>
-      </div>
-      <div>
-        <input
-          type='text'
-          name='lastName'
-          placeholder='Last Name'
-          onChange={updateLastName}
-          value={lastName}
-        ></input>
-      </div>
-      <div>
-        <input
-          type='text'
-          name='email'
-          placeholder='Email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
-  </div>
-</div> */}
