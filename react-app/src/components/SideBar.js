@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-// import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import letterArray from './Letters'
 import imagesArray from './LetterProfile'
 import LogoutButton from './auth/LogoutButton';
 import "./CSS/Sidebar.css"
+import { useSyncExternalStore } from 'react'
 
 export default function Sidebar() {
     const user = useSelector(state => state.session.user)
 
     let profilePic;
     if (user) {
-        const firstLetter = user.first_name.split("")[0]
+        const firstLetter = user.first_name.split("")[0].toUpperCase()
         const index = letterArray.indexOf(firstLetter)
         profilePic = imagesArray[index]
     }
@@ -98,6 +99,26 @@ export default function Sidebar() {
                                         </div>
                                     </div>
                                 </li>
+                                <ul className='user-action-links'>
+                                    <li>
+                                        <NavLink to='/dashboard' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
+                                            <i className="fa-solid fa-house"></i>
+                                            <span className='user-link-name'>Home</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/notes' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
+                                            <i className="fa-solid fa-note-sticky"></i>
+                                            <span className='user-link-name'>Notes</span>
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/notebooks' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
+                                            <i className="fa-solid fa-book"></i>
+                                            <span className='user-link-name'>Notebooks</span>
+                                        </NavLink>
+                                    </li>
+                                </ul>
                             </ul>
                         </div>
                     </nav>

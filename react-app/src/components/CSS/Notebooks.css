@@ -82,10 +82,27 @@
     font-size: 15px;
     color: #d9d9d9;
     font-weight: 500;
+    align-items: center;
 }
 
 .number-of-notebooks {
     margin-right: auto;
+}
+
+.new-notebook-view-page {
+    display: flex;
+    color: #4488d1;
+    float: right;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
+    margin: 0;
+    padding-right: 5px;
 }
 
 .notebooks-page-new-notebook {

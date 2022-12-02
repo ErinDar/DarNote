@@ -47,6 +47,9 @@ export default function Notebook() {
                                         </div>
                                         <div className="notebooks-user-actions">
                                             <div className="number-of-notebooks">{notebooks.length} notebooks</div>
+                                            <div className="new-notebook-view-page">
+                                                <i className="fa-solid fa-file-circle-plus" onClick={() => setNotebookForm(true)}></i>
+                                            </div>
                                             <button className="notebooks-page-new-notebook" onClick={() => setNotebookForm(true)}>New Notebook</button>
                                         </div>
                                         <div className="notebooks-page-view-container">

@@ -1,4 +1,4 @@
-.login-page {
+.signup-page {
     background: none;
     width: auto;
     border: none;
@@ -10,7 +10,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.login-form {
+.signup-form {
     background: #ffffff;
     max-width: 512px;
     margin: 0px auto 28px auto;
@@ -21,20 +21,20 @@
     text-align: left;
 }
 
-.login-form-header {
+.signup-form-header {
     text-align: center;
     color: #aaaaaa;
 }
 
-.login-header-logo {
+.signup-header-logo {
     margin-bottom: 19px;
 }
 
-.login-logo {
+.signup-logo {
     height: 100px;
 }
 
-.login-form-tagline {
+.signup-form-tagline {
     color: #333333;
     font-size: 16px;
     font-style: normal;
@@ -46,7 +46,7 @@ p {
     margin: 0;
 }
 
-.login-form-items {
+.signup-form-items {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +54,7 @@ p {
 }
 
 
-.form-login {
+.form-signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,19 +67,19 @@ p {
     gap: 10px;
 }
 
-.login-form-email,
-.login-form-password {
+.signup-form-email,
+.signup-form-password {
     outline: 2px solid #e6e6e6;
     border-radius: 5px;
 }
 
-.login-form-email:focus-within,
-.login-form-password:focus-within {
+.signup-form-email:focus-within,
+.signup-form-password:focus-within {
     outline: 2px solid #96c0ec;
 }
 
-.login-form-email input,
-.login-form-password input {
+.signup-form-email input,
+.signup-form-password input {
     background-color: transparent;
     border-color: transparent;
     color: #000;
@@ -93,26 +93,14 @@ label {
     color: #000;
 }
 
-.login-submit-buttons,
-.demo-user-button {
+.signup-submit-buttons {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-
-.demo-user-button button {
-    background: #4488d1;
-    border: transparent;
-    border-radius: 5px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 18px;
-    color: #e6e6e6;
-}
-
-.login-submit-buttons button {
+.signup-submit-buttons button {
     background: #4488d1;
     border: transparent;
     border-radius: 5px;
@@ -124,26 +112,25 @@ label {
     transition: background .2s ease-in-out;
 }
 
-.login-submit-buttons button:hover,
-.demo-user-button button:hover {
+.signup-submit-buttons button:hover {
     background: #2f6196;
 }
 
-.login-submit-buttons-disabled button {
+.signup-submit-buttons-disabled button {
     visibility: hidden;
 }
 
-.login-submit-buttons {
+.signup-submit-buttons {
     visibility: visible;
     transition: visibility 3s ease-in;
 }
 
-.login-submit-buttons-disabled {
+.signup-submit-buttons-disabled {
     visibility: hidden;
     transition: visibility 3s ease-in;
 }
 
-.create-account {
+.login-account {
     color: #000;
     display: flex;
     flex-direction: column;
@@ -153,7 +140,7 @@ label {
     font-size: 16px;
 }
 
-.create-account a {
+.login-account a {
     text-decoration: none;
     color: #4488d1;
     cursor: pointer;

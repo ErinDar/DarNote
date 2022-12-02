@@ -10,7 +10,7 @@ def validation_errors_to_error_messages(validation_errors):
     error_messages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            error_messages.append(f"{field}: {error}")
+            error_messages.append(f"{error}")
     return error_messages
 
 
@@ -25,7 +25,7 @@ def notebooks():
 @login_required
 def new_notebook():
     form = NotebookForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
         notebook = Notebook(name=form.data["name"], owner_id=current_user.id)
         db.session.add(notebook)
@@ -40,7 +40,7 @@ def edit_notebook(id):
     notebook = Notebook.query.get(id)
     if current_user.id == notebook.owner_id:
         form = NotebookForm()
-        form['csrf_token'].data = request.cookies['csrf_token']
+        form["csrf_token"].data = request.cookies["csrf_token"]
         if form.validate_on_submit():
             notebook.name = form.data["name"]
             db.session.add(notebook)
@@ -60,9 +60,11 @@ def delete_notebook(id):
         return {"data": "Deleted"}
     return {"errors": ["Unauthorized"]}
 
+
 # ================================= Notes by notebook ===============================
 
-@notebook_routes.route("/<int:id>/notes", methods=['GET'])
+
+@notebook_routes.route("/<int:id>/notes", methods=["GET"])
 @login_required
 def get_notebook_notes(id):
     notebooks = Notebook.query.filter(Notebook.owner_id == current_user.id)
@@ -70,4 +72,4 @@ def get_notebook_notes(id):
     if target_notebook:
         notes = Note.query.filter(Note.notebook_id == id)
         return {note.to_dict()["id"]: note.to_dict() for note in notes}
-    return {"errors": ['Unauthorized']}
+    return {"errors": ["Unauthorized"]}

@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard'
 import Notebook from './components/Notebooks'
 import Note from './components/Notes'
+import Editor from './components/Editor';
 import { authenticate } from './store/session';
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/test' exact={true}>
+          <Editor />
         </Route>
         <ProtectedRoute path='/dashboard' exact={true} >
           <Dashboard />
