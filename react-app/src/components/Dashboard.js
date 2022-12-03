@@ -72,12 +72,12 @@ export default function Dashboard() {
                                                             <div className='notes-container'>
                                                                 <div className='notes-wrapper'>
                                                                     {notes[0] && notes.map((note, idx) => (
-                                                                        <button className='go-to-note-button'>
+                                                                        <button key={idx} className='go-to-note-button'>
                                                                             <div className='notes-button'>
                                                                                 <div className='notes-button-header'>
                                                                                     <div className='notes-button-title'>{note.title}</div>
                                                                                     <div className='notes-button-body'>
-                                                                                        <span key={idx}>{note.body}</span>
+                                                                                        <span>{note.body}</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
