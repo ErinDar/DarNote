@@ -10,8 +10,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const name = "Default Notebook"
-
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('')
@@ -30,7 +28,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    const data = await dispatch(signUp(firstName, lastName, email, password));
+    const data = await dispatch(signUp(firstName, lastName, email, password))
     if (data) {
       setErrors(data)
     }

@@ -7,31 +7,12 @@ export default function NotebookForm({ setNotebookForm }) {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [errors, setErrors] = useState([])
-    const [valid, setValid] = useState(false)
 
-
-    const handleChange = async (e) => {
-        e.preventDefault()
-        setName(e.target.value)
-        if (name.length < 2) {
-            const notebook = await dispatch(notebookActions.postNotebookThunk({ name }))
-            const targetError = notebook.filter(err => err.toLowerCase().includes('notebook'))
-            setErrors(targetError)
-            setValid(false)
-        }
-        if (name.length >= 2) {
-            setErrors([])
-            setValid(true)
-        }
-    }
     const newNotebook = async (e) => {
         e.preventDefault();
-        const notebook = await dispatch(notebookActions.postNotebookThunk({ name }))
+        const notebook = await dispatch(notebookActions.editNotebookThunk({ name }))
         if (notebook) {
             setErrors(notebook)
-            if (!Array.isArray(notebook)) {
-                setNotebookForm(false)
-            }
         }
     }
 
@@ -40,7 +21,7 @@ export default function NotebookForm({ setNotebookForm }) {
             <header className='new-notebook-header'>
                 <div className='new-header-items'>
                     <div>
-                        <h1 className="new-header-title">Create new notebook</h1>
+                        <h1 className="new-header-title">Rename notebook</h1>
                     </div>
                     <div>
                         <button onClick={() => setNotebookForm(false)}>
@@ -57,7 +38,6 @@ export default function NotebookForm({ setNotebookForm }) {
                         </button>
                     </div>
                 </div>
-                <h2 className='new-notebook-tagline'>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</h2>
             </header>
             <form className="new-notebook-dash-form">
                 <label className='form-name'>Name</label>
@@ -66,14 +46,12 @@ export default function NotebookForm({ setNotebookForm }) {
                         type="text"
                         value={name}
                         placeholder="Notebook name"
-                        onChange={handleChange}
-                        required
-                        // onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                         className="form-name-input-field"
                     />
                 </div>
                 {!!errors.length && (
-                    <div className='notebook-error-messages'>
+                    <div className='error-messages'>
                         {errors.map((err, idx) => (
                             <div key={idx}>{err}</div>
                         ))}
@@ -84,9 +62,7 @@ export default function NotebookForm({ setNotebookForm }) {
             <div className='dash-new-notebook-action-buttons'>
                 <div className='action-buttons'>
                     <button className='cancel-new-notebook-dash' onClick={() => setNotebookForm(false)}>Cancel</button>
-                    {/* <button className='create-new-notebook-dash-active' onClick={newNotebook}>Create</button> */}
-                    {/* <button className={name.length >= 3 ? 'create-new-notebook-dash-active' : 'create-new-notebook-dash-disabled'} onClick={newNotebook}>Create</button> */}
-                    <button className={valid ? 'create-new-notebook-dash-active' : 'create-new-notebook-dash-disabled'} onClick={newNotebook}>Create</button>
+                    <button className={name.length >= 3 ? 'create-new-notebook-dash-active' : 'create-new-notebook-dash-disabled'} onClick={newNotebook}>Create</button>
                 </div>
             </div>
         </>

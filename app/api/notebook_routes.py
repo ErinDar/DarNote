@@ -21,6 +21,13 @@ def notebooks():
     return {notebook.to_dict()["id"]: notebook.to_dict() for notebook in notebooks}
 
 
+@notebook_routes.route("/<int:id>")
+@login_required
+def single_notebook(id):
+    notebook = Notebook.query.get(id)
+    return notebook.to_dict
+
+
 @notebook_routes.route("/new", methods=["POST"])
 @login_required
 def new_notebook():

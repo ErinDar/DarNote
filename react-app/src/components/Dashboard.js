@@ -71,8 +71,8 @@ export default function Dashboard() {
                                                         <div className='notes-quad-container'>
                                                             <div className='notes-container'>
                                                                 <div className='notes-wrapper'>
-                                                                    {notes[0] && notes.map((note) => (
-                                                                        <button className='go-to-note-button'>
+                                                                    {notes[0] && notes.map((note, idx) => (
+                                                                        <button key={idx} className='go-to-note-button'>
                                                                             <div className='notes-button'>
                                                                                 <div className='notes-button-header'>
                                                                                     <div className='notes-button-title'>{note.title}</div>
@@ -181,10 +181,11 @@ export default function Dashboard() {
                                                         <div className='notebooks-quad-container'>
                                                             <div className='notebooks-quad-wrapper'>
                                                                 <div className='notebooks-wrapper'>
-                                                                    {notebooks[0] && notebooks.map((notebook) => (
-                                                                        <article className='notebook-item'>
+                                                                    {notebooks[0] && notebooks.map((notebook, idx) => (
+                                                                        <article key={idx} className='notebook-item' onClick={() => history.push(`/notebooks/${notebook.id}`)}>
                                                                             <div className='notebook-item-body'>
                                                                                 <h2 className='notebook-item-title'>{notebook.name}</h2>
+                                                                                <span></span>
                                                                             </div>
                                                                         </article>
                                                                     ))}

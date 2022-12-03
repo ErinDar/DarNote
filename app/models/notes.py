@@ -9,7 +9,7 @@ class Note(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(40))
-    body = db.Column(db.String, nullable=False)
+    body = db.Column(db.String(225))
     author_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     notebook_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("notebooks.id")))
 
