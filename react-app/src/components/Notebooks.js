@@ -11,6 +11,7 @@ import "./CSS/Notebooks.css"
 
 export default function Notebook() {
     const dispatch = useDispatch()
+    const sessionUser = useSelector(state => state.session.user)
     const notebooks = Object.values(useSelector(state => state.notebooks))
     const [notebookForm, setNotebookForm] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
@@ -56,7 +57,18 @@ export default function Notebook() {
                                             <div className="notebook-table-header">
                                                 <div className="notebook-title-table">TITLE</div>
                                                 <div className="notebook-author-table">CREATED BY</div>
+                                                <div className="notebooks-updated-table">UPDATED AT</div>
                                                 <div className="notebooks-actions-table">ACTIONS</div>
+                                            </div>
+                                            <div>
+                                                {notebooks[0] && notebooks.map((notebook, idx) => (
+                                                    <div>
+                                                        <span key={idx}>{notebook.name}</span>
+                                                        <span>{sessionUser.first_name} {sessionUser.last_name}</span>
+                                                        {/* add updated at time here */}
+                                                        <button><i className="fa-solid fa-ellipsis"></i></button>
+                                                    </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </main>

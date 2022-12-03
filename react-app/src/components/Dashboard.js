@@ -182,9 +182,10 @@ export default function Dashboard() {
                                                             <div className='notebooks-quad-wrapper'>
                                                                 <div className='notebooks-wrapper'>
                                                                     {notebooks[0] && notebooks.map((notebook) => (
-                                                                        <article className='notebook-item'>
+                                                                        <article className='notebook-item' onClick={() => history.push(`/notebooks/${notebook.id}`)}>
                                                                             <div className='notebook-item-body'>
                                                                                 <h2 className='notebook-item-title'>{notebook.name}</h2>
+                                                                                <span></span>
                                                                             </div>
                                                                         </article>
                                                                     ))}

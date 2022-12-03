@@ -118,6 +118,12 @@ export default function Sidebar() {
                                             <span className='user-link-name'>Notebooks</span>
                                         </NavLink>
                                     </li>
+                                    <li>
+                                        <NavLink to='/trash' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
+                                            <i className="fa-solid fa-trash"></i>
+                                            <span className='user-link-name'>Trash</span>
+                                        </NavLink>
+                                    </li>
                                 </ul>
                             </ul>
                         </div>

@@ -126,6 +126,8 @@
     font-size: 14px;
     width: 100%;
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
 }
 
 .notebook-table-header {

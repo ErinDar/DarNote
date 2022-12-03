@@ -37,6 +37,13 @@ export const postNotebookThunk = ({ name }) => async (dispatch) => {
         const notebook = await res.json()
         dispatch(newNotebook(notebook))
         return notebook
+    } else if (res.status < 500) {
+        const notebook = await res.json()
+        if (notebook.errors) {
+            return notebook.errors;
+        }
+    } else {
+        return ['An error occured. Please try again.']
     }
 }
 

@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard'
 import Notebook from './components/Notebooks'
 import Note from './components/Notes'
 import Editor from './components/Editor';
+import TargetNotebook from './components/SingleNotebook';
 import { authenticate } from './store/session';
 
 function App() {
@@ -52,6 +53,12 @@ function App() {
         <ProtectedRoute path='/notes' exact={true}>
           <Note />
         </ProtectedRoute>
+        <ProtectedRoute path='/notebooks/:notebooksId' exact={true} >
+          <TargetNotebook />
+        </ProtectedRoute>
+        {/* <ProtectedRoute path='/notes/:notesId' exact={true}>
+          <Note />
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
