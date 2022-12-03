@@ -53,7 +53,7 @@ const LoginForm = () => {
     <div className='login-page'>
       <div className='login-form'>
         <div className='login-form-header'>
-          <div className='login-header-logo'>
+          <div className='login-header-logo' onClick={() => history.push("/")}>
             <img src={Darnote} alt="Darnote submark" className="login-logo"></img>
           </div>
           <p className='login-form-tagline'>Remember everything important.</p>
