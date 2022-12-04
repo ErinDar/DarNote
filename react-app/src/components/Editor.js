@@ -6,6 +6,7 @@ export default function Editor() {
     const [value, setValue] = useState('');
 
     return (
-        <ReactQuill theme="snow" value={value} onChange={setValue} />
+        <>
+        </>
     );
 }
