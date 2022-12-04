@@ -39,6 +39,11 @@ export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) =>
         const note = await res.json()
         dispatch(newNote(note))
         return note
+    } else if (res.status < 500) {
+        const note = await res.json()
+        if (note.errors) {
+            return note.errors
+        }
     }
 }
 
