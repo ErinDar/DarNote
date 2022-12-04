@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useLocation, NavLink } from 'react-router-dom';
+import { Redirect, useLocation, NavLink, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import { postNotebookThunk } from '../../store/notebooks';
 import Darnote from "../assets/submark.svg"
 import '../CSS/SignUpForm.css'
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const history = useHistory()
 
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
@@ -57,7 +57,7 @@ const SignUpForm = () => {
     <div className='signup-page'>
       <div className='signup-form'>
         <div className='signup-form-header'>
-          <div className='signup-header-logo'>
+          <div className='signup-header-logo' onClick={() => history.push("/")}>
             <img src={Darnote} alt="Darnote submark" className="signup-logo"></img>
           </div>
           <p className='signup-form-tagline'>Remember everything important.</p>

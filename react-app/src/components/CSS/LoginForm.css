@@ -28,6 +28,7 @@
 
 .login-header-logo {
     margin-bottom: 19px;
+    cursor: pointer;
 }
 
 .login-logo {
