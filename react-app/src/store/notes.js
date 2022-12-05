@@ -23,7 +23,8 @@ const deleteNote = (id) => ({
     id
 })
 
-export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) => {
+export const postNoteThunk = (noteData) => async (dispatch) => {
+    const { title, body, notebooks } = noteData
     const res = await fetch("/api/notes/new", {
         method: "POST",
         headers: {

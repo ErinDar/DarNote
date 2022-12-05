@@ -8,7 +8,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard'
 import Notebook from './components/Notebooks'
 import Note from './components/Notes'
-import Editor from './components/Editor';
 import EditNote from './components/EditNote';
 import TargetNotebook from './components/TargetNotebook';
 import { authenticate } from './store/session';

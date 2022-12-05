@@ -9,7 +9,6 @@ export const singleNoteThunk = (id) => async (dispatch) => {
     const res = await fetch(`/api/notes/${id}`)
     if (res.ok) {
         const note = await res.json()
-        console.log('note', note)
         dispatch(singleNote(note))
         return note
     }

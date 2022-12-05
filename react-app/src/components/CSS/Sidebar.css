@@ -335,6 +335,10 @@ svg {
     margin: 0;
 }
 
+.disabled {
+    cursor: not-allowed;
+}
+
 .dashboard-page-link:hover {
     background-color: #333;
 }
@@ -396,7 +400,7 @@ svg {
     padding: 4px 8px 4px 18px;
     display: flex;
     align-items: center;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 .task-button:hover {

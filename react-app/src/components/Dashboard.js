@@ -66,7 +66,7 @@ export default function Dashboard() {
                                                 <article className='notes-quad-container'>
                                                     <section className='notes-quad-header'>
                                                         <div className='notes-quad-title-container'>
-                                                            <button className='notes-view-button' onClick={handleNoteClick}>
+                                                            <button className='notes-view-button' onClick={() => history.push('/notes')}>
                                                                 <h2 className='notes-view-title'>notes</h2>
                                                                 <svg className='notes-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
                                                                     <g fill="none" fillRule="evenodd">
@@ -87,7 +87,7 @@ export default function Dashboard() {
                                                                                 <div className='notes-button-header'>
                                                                                     <div className='notes-button-title'>{note.title}</div>
                                                                                     <div className='notes-button-body'>
-                                                                                        <span>{note.body}</span>
+                                                                                        {/* <span>{note.body}</span> */}
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -130,7 +130,7 @@ export default function Dashboard() {
                                                                 <div className='empty-new-task-button-container'>
                                                                     <div className='empty-new-task-button-wrapper'>
                                                                         <button className='empty-new-task-button'>
-                                                                            <span className='empty-new-task-button-title'>Add new task</span>
+                                                                            <span className='empty-new-task-button-title'>Upgrade to add task</span>
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -165,7 +165,7 @@ export default function Dashboard() {
                                                                 <div className='empty-new-tags-button-container'>
                                                                     <div className='empty-new-tags-button-wrapper'>
                                                                         <button className='empty-new-tags-button'>
-                                                                            <span className='empty-new-tags-button-title'>Create new tag</span>
+                                                                            <span className='empty-new-tags-button-title'>Upgrade to create tag</span>
                                                                         </button>
                                                                     </div>
                                                                 </div>
