@@ -1,7 +1,7 @@
-const NEW_NOTE = "notebooks/NEW_NOTE"
-const EDIT_NOTE = "notebooks/EDIT_NOTE"
-const GET_NOTES = "notebooks/GET_NOTES"
-const DELETE_NOTE = "notebooks/DELETE_NOTE"
+const NEW_NOTE = "notes/NEW_NOTE"
+const EDIT_NOTE = "notes/EDIT_NOTE"
+const GET_NOTES = "notes/GET_NOTES"
+const DELETE_NOTE = "notes/DELETE_NOTE"
 
 const newNote = (note) => ({
     type: NEW_NOTE,
@@ -39,6 +39,11 @@ export const postNoteThunk = ({ title, body, notebooks }) => async (dispatch) =>
         const note = await res.json()
         dispatch(newNote(note))
         return note
+    } else if (res.status < 500) {
+        const note = await res.json()
+        if (note.errors) {
+            return note.errors
+        }
     }
 }
 
@@ -84,7 +89,7 @@ export const deleteNoteThunk = (id) => async (dispatch) => {
 
 const initialState = {}
 
-export default function notebooks(state = initialState, action) {
+export default function notes(state = initialState, action) {
     let newState = {};
     switch (action.type) {
         case NEW_NOTE:

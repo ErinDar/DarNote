@@ -27,6 +27,16 @@ export default function Dashboard() {
         document.body.classList.add("dashboard-body")
     }
 
+    const handleNoteClick = async () => {
+        const noteData = {
+            title: 'Untitled',
+            body: '',
+            notebooks: notebooks[notebooks.length - 1].id
+        }
+        const newNote = await dispatch(notesActions.postNoteThunk(noteData))
+        if (!Array.isArray(newNote)) return history.push(`/notes/${newNote.id}`)
+    }
+
     useEffect(() => {
         dispatch(notebookActions.getNotebooksThunk())
             .then(() => dispatch(notesActions.getNotesThunk()))
@@ -56,7 +66,7 @@ export default function Dashboard() {
                                                 <article className='notes-quad-container'>
                                                     <section className='notes-quad-header'>
                                                         <div className='notes-quad-title-container'>
-                                                            <button className='notes-view-button' onClick={() => history.push('/notes')}>
+                                                            <button className='notes-view-button' onClick={handleNoteClick}>
                                                                 <h2 className='notes-view-title'>notes</h2>
                                                                 <svg className='notes-view-icon' xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8'>
                                                                     <g fill="none" fillRule="evenodd">
@@ -68,11 +78,11 @@ export default function Dashboard() {
                                                         </div>
                                                     </section>
                                                     <section className='notes-quad-body'>
-                                                        <div className='notes-quad-container'>
+                                                        <div className='notes-quad-container-inner'>
                                                             <div className='notes-container'>
                                                                 <div className='notes-wrapper'>
                                                                     {notes[0] && notes.map((note, idx) => (
-                                                                        <button key={idx} className='go-to-note-button'>
+                                                                        <button key={idx} className='go-to-note-button' onClick={() => history.push(`/notes/${note.id}`)}>
                                                                             <div className='notes-button'>
                                                                                 <div className='notes-button-header'>
                                                                                     <div className='notes-button-title'>{note.title}</div>
@@ -84,13 +94,14 @@ export default function Dashboard() {
                                                                         </button>
                                                                     ))}
                                                                     <div className='create-note-paper'>
-                                                                        <div className='create-notebook-body' onClick={() => history.push('/notes')}>
-                                                                            <p className='create-notebook-title'>Create new note</p>
+                                                                        <div className='create-note-body' onClick={handleNoteClick}>
+                                                                            <i className="fa-solid fa-file-circle-plus fa-2xl"></i>
+                                                                            <p className='create-note-title'>Create new note</p>
                                                                         </div>
                                                                     </div>
-                                                                    <div className='notebook-side-left'></div>
-                                                                    <div className='notebook-side-right'></div>
                                                                 </div>
+                                                                <div className='notes-side-left'></div>
+                                                                <div className='notes-side-right'></div>
                                                             </div>
                                                         </div>
                                                     </section>
@@ -113,7 +124,7 @@ export default function Dashboard() {
                                                     </section>
                                                     <section className='task-quad-body'>
                                                         <div className='task-quad-container'>
-                                                            {/* if there are no task */}
+
                                                             <div className='task-quad-wrapper'>
                                                                 <p className='empty-task-message'>Add tasks to any note and prioritize them with due dates and tags</p>
                                                                 <div className='empty-new-task-button-container'>
@@ -124,11 +135,13 @@ export default function Dashboard() {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {/* end if there are not task */}
+
                                                         </div>
                                                     </section>
                                                 </article>
                                             </div>
+
+
                                             <div className='tags-dashboard-quad'>
                                                 <article className='tags-quad-container'>
                                                     <section className='tags-quad-header'>
@@ -146,7 +159,7 @@ export default function Dashboard() {
                                                     </section>
                                                     <section className='tags-quad-body'>
                                                         <div className='tags-quad-container'>
-                                                            {/* if there are no tags */}
+
                                                             <div className='tags-quad-wrapper'>
                                                                 <p className='empty-tags-message'>Tag notes with keywords to make them easier to find.</p>
                                                                 <div className='empty-new-tags-button-container'>
@@ -157,11 +170,14 @@ export default function Dashboard() {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {/* end if there are no tags */}
+
                                                         </div>
                                                     </section>
                                                 </article>
                                             </div>
+
+                                            {/* notebooks */}
+
                                             <div className='notebooks-dashboard-quad'>
                                                 <article className='notebooks-quad-container'>
                                                     <section className='notebooks-quad-header'>
@@ -178,11 +194,11 @@ export default function Dashboard() {
                                                         </div>
                                                     </section>
                                                     <section className='notebooks-quad-body'>
-                                                        <div className='notebooks-quad-container'>
+                                                        <div className='notebooks-quad-container-inner'>
                                                             <div className='notebooks-quad-wrapper'>
                                                                 <div className='notebooks-wrapper'>
                                                                     {notebooks[0] && notebooks.map((notebook, idx) => (
-                                                                        <article key={idx} className='notebook-item' onClick={() => history.push(`/notebooks/${notebook.id}`)}>
+                                                                        <article key={idx} className='notebook-item' onClick={() => history.push(`/ notebooks / ${notebook.id}`)}>
                                                                             <div className='notebook-item-body'>
                                                                                 <h2 className='notebook-item-title'>{notebook.name}</h2>
                                                                                 <span></span>
@@ -191,6 +207,7 @@ export default function Dashboard() {
                                                                     ))}
                                                                     <article className='create-notebook-book'>
                                                                         <div className='create-notebook-body' onClick={() => setNotebookForm(true)}>
+                                                                            <i className="fa-solid fa-circle-plus fa-3x"></i>
                                                                             <p className='create-notebook-title'>Create new notebook</p>
                                                                         </div>
                                                                     </article>

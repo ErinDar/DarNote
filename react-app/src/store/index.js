@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import notebooks from './notebooks'
 import notes from './notes'
+import targetNote from './targetnote';
+import targetNotebook from './targetnotebook'
 
 const rootReducer = combineReducers({
   session,
   notebooks,
-  notes
+  notes,
+  targetNote,
+  targetNotebook
 });
 
 

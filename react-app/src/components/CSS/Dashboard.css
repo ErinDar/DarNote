@@ -4,12 +4,20 @@
     height: 100vh;
     width: 100%;
     font-weight: 400;
+    box-sizing: border-box;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .dashboard-container {
     display: flex;
     flex: 1;
     overflow: hidden;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .dashboard-holder {
@@ -17,6 +25,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .dashboard-wrapper {
@@ -28,10 +37,11 @@
 
 .dashboard-main-body {
     display: flex;
-    flex-direction: row;
-    height: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
 }
 
 .main-body-container {
@@ -46,7 +56,7 @@
     z-index: 1;
 }
 
-/* have to figure out how to crete the scrolling effect on evernote */
+/* have to figure out how to create the scrolling effect on evernote */
 
 /* .main-body-container-scroll {
     margin-right: 0px;
@@ -85,6 +95,7 @@
 }
 
 .lower-main-body {
+    box-sizing: border-box;
     margin: -162px 24px 24px;
     max-width: 2320px;
 }
@@ -94,9 +105,759 @@
     grid-gap: 24px;
     grid-auto-rows: 360px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    box-sizing: border-box;
+    min-width: 288px;
 }
 
-.notes-dashboard-quad,
+/* notes section */
+
+.notes-dashboard-quad {
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.notes-quad-container {
+    display: flex;
+    border-radius: 8px;
+    flex-direction: column;
+    z-index: 1;
+    background-color: #1a1a1a;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, .14902);
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    outline: 1px solid transparent;
+    overflow: scroll;
+}
+
+.notes-quad-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 16px 0 10px;
+    flex: none;
+}
+
+.notes-quad-title-container {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    margin: 0 10px 0 12px;
+}
+
+.notes-view-button {
+    display: flex;
+    border-radius: 3px;
+    max-width: 100%;
+    padding: 0 10px 0 4px;
+    cursor: pointer;
+    transition: background-color .25s linear;
+    appearance: button;
+    background-color: transparent;
+    border: rgba(118, 118, 118);
+    overflow: visible;
+    font-size: 1em;
+    margin: 0;
+}
+
+.notes-view-button:hover {
+    background-color: #737373;
+}
+
+.notes-view-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 4px 0;
+    text-transform: uppercase;
+    color: #e6e6e6;
+    vertical-align: middle;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.notes-view-icon {
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    margin: 6px 0 7px 10px;
+    box-sizing: border-box;
+}
+
+.notes-quad-body {
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.notes-quad-container-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.notes-container {
+    flex: 1 1 auto;
+    overflow-x: scroll;
+    /* overflow-y: hidden; */
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+}
+
+
+.notes-wrapper {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 100%;
+    padding: 18px 5px 5px 17px;
+    box-sizing: border-box;
+}
+
+.go-to-note-button {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 2px solid transparent;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    appearance: button;
+    background-color: #262626;
+    border: 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    flex: none;
+    height: 258px;
+    width: 172px;
+    max-height: 258px;
+    margin: 0 12px 0 0;
+    border-radius: 8px;
+}
+
+.notes-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 16px;
+
+}
+
+.notes-button-header {
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.notes-button-title {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: #e6e6e6;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.notes-button-body {
+    text-align: left;
+    line-height: 18px;
+    padding-bottom: 2px;
+    font-size: 14px;
+    color: #a6a6a6;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.create-note-paper {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: none;
+    height: 258px;
+    width: 172px;
+    background-color: #262626;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    margin: 0 12px 0 0;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: background .2s ease-out;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-note-paper:hover {
+    background: rgba(152, 152, 152, 0.149);
+}
+
+.fa-file-circle-plus {
+    color: #4488d1;
+}
+
+.create-note-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.notes-side-left {
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+    top: 30px;
+    width: 24px;
+    z-index: 1;
+    background: linear-gradient(to left, rgba(26, 26, 26, 0.02), #1a1a1a);
+}
+
+.notes-side-right {
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+    top: 30px;
+    width: 24px;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.02), #1a1a1a);
+}
+
+/* task section */
+
+/* tags section */
+
+.task-dashboard-quad,
+.tags-dashboard-quad {
+    z-index: 1;
+}
+
+.task-quad-container {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14902);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    outline: 1px solid transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+}
+
+.task-quad-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 16px 0 10px;
+    flex: none;
+}
+
+.task-quad-title-container {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    margin: 0 10px 0 12px;
+}
+
+.task-view-button {
+    display: flex;
+    border-radius: 3px;
+    max-width: 100%;
+    padding: 0 10px 0 4px;
+    cursor: pointer;
+    transition: background-color .25s linear;
+    appearance: button;
+    background-color: transparent;
+    border: rgba(118, 118, 118);
+    overflow: visible;
+    font-size: 1em;
+    margin: 0;
+}
+
+.task-view-button:hover {
+    background-color: #737373;
+}
+
+.task-view-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 4px 0;
+    text-transform: uppercase;
+    color: #e6e6e6;
+    vertical-align: middle;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.task-view-icon {
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    margin: 6px 0 7px 10px;
+    box-sizing: border-box;
+}
+
+svg {
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.task-quad-body {
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.task-quad-wrapper {
+    margin: 0 auto;
+}
+
+.empty-task-message {
+    max-width: 360px;
+    color: #a6a6a6;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 16px auto;
+    max-height: 60px;
+    min-height: 40px;
+    padding: 0 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.empty-new-task-button-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.empty-new-task-button-wrapper {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 32px;
+}
+
+.empty-new-task-button,
+.empty-new-tags-button {
+    display: flex;
+    color: #4488D1;
+    background-color: transparent;
+    border: 1px solid #737373;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 102px;
+    padding: 0;
+    overflow: visible;
+    font-weight: 600;
+    transition: border .2s linear;
+}
+
+.empty-new-task-button:hover,
+.empty-new-tags-button:hover {
+    border: 1px solid #4488D1
+}
+
+.empty-new-task-button-title,
+.empty-new-tags-button-title {
+    display: inline-block;
+    overflow: hidden;
+    padding: 7px 16px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.tags-quad-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 16px 0 10px;
+    flex: none;
+}
+
+.tags-quad-title-container {
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+    margin: 0 10px 0 12px;
+}
+
+.tags-view-button {
+    display: flex;
+    border-radius: 3px;
+    max-width: 100%;
+    padding: 0 10px 0 4px;
+    cursor: pointer;
+    transition: background-color .25s linear;
+    appearance: button;
+    background-color: transparent;
+    border: rgba(118, 118, 118);
+    overflow: visible;
+    font-size: 1em;
+    margin: 0;
+}
+
+.tags-view-button:hover {
+    background-color: #737373;
+}
+
+.tags-view-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 4px 0;
+    text-transform: uppercase;
+    color: #e6e6e6;
+    vertical-align: middle;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.tags-view-icon {
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    margin: 6px 0 7px 10px;
+    box-sizing: border-box;
+}
+
+.tags-quad-container {
+    text-align: center;
+    width: 100%;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14902);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    outline: 1px solid transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.tags-quad-wrapper {
+    margin: 0 auto;
+}
+
+.empty-tags-message {
+    max-width: 355px;
+    color: #a6a6a6;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 16px auto;
+    max-height: 60px;
+    min-height: 40px;
+    padding: 0 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.empty-new-tags-button-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.empty-new-tags-button-wrapper {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 24px;
+}
+
+.tags-quad-body {
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* notebooks section */
+.notebooks-dashboard-quad {
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.notebooks-quad-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    outline: 1px solid transparent;
+    overflow: scroll;
+    position: relative;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.14902);
+    z-index: 1;
+}
+
+.notebooks-quad-header {
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    height: 50px;
+    padding: 16px 0 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.notebooks-quad-title-container {
+    margin: 0 10px 0 12px;
+    overflow: hidden;
+    flex: 1 1 auto;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.notebooks-view-button {
+    display: flex;
+    max-width: 100%;
+    padding: 0 10px 0 4px;
+    cursor: pointer;
+    overflow: visible;
+    margin: 0;
+    font-size: 1em;
+    background-color: transparent;
+    border-style: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    appearance: button;
+}
+
+.notebooks-view-button:hover {
+    background-color: #737373;
+}
+
+.notebooks-view-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 4px 0;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+    border: 0;
+    color: #e6e6e6;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.notebooks-view-icon {
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    margin: 6px 0 7px 10px;
+    box-sizing: border-box;
+}
+
+.notebooks-quad-body {
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.notebooks-quad-container-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.notebooks-quad-wrapper {
+    flex: 1 1 auto;
+    overflow-x: scroll;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+}
+
+.notebooks-wrapper {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 100%;
+    padding: 18px 5px 5px 17px;
+    box-sizing: border-box;
+}
+
+.notebook-item {
+    background-color: #262626;
+    border: solid #333;
+    border-left: 16px solid #333;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    color: #e6e6e6;
+    cursor: pointer;
+    display: flex;
+    max-height: 258px;
+    transition: background .2s ease-out;
+    margin-right: 13px;
+    min-width: 172px;
+    box-sizing: border-box;
+
+}
+
+.notebook-item:hover {
+    background: rgba(152, 152, 152, 0.149);
+}
+
+.notebook-item-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 31px 15px 15px 16px;
+    width: 151px;
+    border-left: 4px solid #1a1a1a;
+    box-sizing: border-box;
+}
+
+.notebook-item-title {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.create-notebook-book {
+    background: #262626;
+    border-left: 16px solid #333;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    height: 100%;
+    max-height: 258px;
+    width: 172px;
+    transition: background .2s ease-out;
+    box-sizing: border-box;
+}
+
+.create-notebook-book:hover {
+    background: rgba(152, 152, 152, 0.149);
+}
+
+.create-notebook-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 4px solid #1a1a1a;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.fa-circle-plus {
+    color: #4488d1;
+}
+
+.create-notebook-title {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: 12px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #e6e6e6;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+/* media queries */
+
+@media screen and (min-width: 1020px) {
+    .notes-dashboard-quad {
+        grid-column: span 2;
+    }
+
+    .task-dashboard-quad {
+        grid-column: span 1;
+    }
+
+    .notebooks-dashboard-quad {
+        grid-column: span 1;
+    }
+}
+
+@media screen and (min-width:500px) {
+    .notes-wrapper {
+        overflow: scroll;
+    }
+
+    .notes-wrapper:hover {
+        overflow: scroll;
+    }
+}
+
+/*====================================== old styling rewrote to fix overflow scroll on notes and notebooks quad ===============================================*/
+
+/* .notes-dashboard-quad,
 .task-dashboard-quad,
 .tags-dashboard-quad,
 .notebooks-dashboard-quad {
@@ -210,8 +971,6 @@ svg {
     overflow: hidden;
     position: relative;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
 }
 
 .notes-quad-container,
@@ -219,24 +978,30 @@ svg {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-x: auto;
 }
 
 .notes-container {
     border-radius: 0 0 8px 8px;
     flex: 1 1 auto;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .notes-wrapper {
     display: flex;
     flex-direction: row;
     float: left;
-    height: 100%;
     padding: 18px 5px 5px 17px;
-}
+    box-sizing: border-box;
+} */
 
-.create-note-paper {
+/* .notes-wrapper:hover {
+    overflow-x: scroll;
+} */
+
+/* .create-note-paper {
     background-color: #262626;
     box-shadow: rgba(0, 0, 6px) rgba(0, 0, 0, 0.2);
     flex: none;
@@ -478,22 +1243,22 @@ svg {
     height: 100%;
     justify-content: center;
     text-align: center;
-}
+} */
 
-.create-notebook-title {
-    color: #e6e6e6;
+/* .create-notebook-title { */
+/* color: #e6e6e6;
     font-size: 16px;
     line-height: 20px;
     margin-top: 12px;
     font-weight: 500;
     border: 0;
     margin: 0;
-    padding: 0;
-    /* vertical-align: baseline; */
-    width: 90px;
-}
+    padding: 0; */
+/* vertical-align: baseline; */
+/* width: 90px; */
+/* } */
 
-.notebook-item {
+/* .notebook-item {
     background: #262626;
     border: 0 solid #333;
     border-left: 16px solid #333;
@@ -540,20 +1305,4 @@ svg {
     width: 24px;
     z-index: 1;
     background: linear-gradient(to right, rgba(26, 26, 26, 0.02), #1a1a1a);
-}
-
-/* media queries */
-
-@media screen and (min-width: 1020px) {
-    .notes-dashboard-quad {
-        grid-column: span 2;
-    }
-
-    .task-dashboard-quad {
-        grid-column: span 1;
-    }
-
-    .notebooks-dashboard-quad {
-        grid-column: span 1;
-    }
-}
+} */

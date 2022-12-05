@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired
 
 class NoteForm(FlaskForm):
     title = StringField("Title")
-    body = StringField("Body", validators=[DataRequired(message="Must add text to create a note")])
+    body = StringField("Body")
     notebooks = SelectField("Notebooks", validators=[DataRequired(message="Must select a notebook")], coerce=int)

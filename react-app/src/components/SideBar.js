@@ -5,7 +5,6 @@ import letterArray from './Letters'
 import imagesArray from './LetterProfile'
 import LogoutButton from './auth/LogoutButton';
 import "./CSS/Sidebar.css"
-import { useSyncExternalStore } from 'react'
 
 export default function Sidebar() {
     const user = useSelector(state => state.session.user)
@@ -35,17 +34,16 @@ export default function Sidebar() {
                                                     <div className='user'>
                                                         {user.first_name} {user.last_name}
                                                     </div>
-                                                    <div><LogoutButton /></div>
-                                                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox='0 0 8 8' className='evernote-svg'>
-                                                        <path fill="none" d="M7 2L4 5 1 2"></path>
-                                                    </svg> */}
                                                 </div>
                                             </div>
                                         </span>
                                     </div>
                                 </li>
                                 <li className='sidebar-search-new-section'>
-                                    <div className='sidebar-search-container'>
+
+                                    {/* implement search bar later */}
+
+                                    {/* <div className='sidebar-search-container'>
                                         <div className='sidebar-search-wrapper'>
                                             <div className='sidebar-search'>
                                                 <svg className='search-mag-glass' width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +79,7 @@ export default function Sidebar() {
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='sidebar-new-container'>
                                         <div className='sidebar-new-wrapper'>
                                             <button className='sidebar-new-button'>
@@ -91,7 +89,7 @@ export default function Sidebar() {
                                                         fill="currentColor"
                                                     />
                                                 </svg>
-                                                <div className='new-button-name'>New</div>
+                                                <div className='new-button-name'>Create New Note</div>
                                             </button>
                                             <svg className='new-button-arrow' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox='0 0 8 8'>
                                                 <path fill="none" d="M7 2L4 5 1 2"></path>
@@ -100,32 +98,61 @@ export default function Sidebar() {
                                     </div>
                                 </li>
                                 <ul className='user-action-links'>
-                                    <li>
-                                        <NavLink to='/dashboard' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
+                                    <li className='sidebar-home-link'>
+                                        <NavLink to='/dashboard' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
                                             <i className="fa-solid fa-house"></i>
                                             <span className='user-link-name'>Home</span>
                                         </NavLink>
                                     </li>
-                                    <li>
-                                        <NavLink to='/notes' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
-                                            <i className="fa-solid fa-note-sticky"></i>
-                                            <span className='user-link-name'>Notes</span>
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/notebooks' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
-                                            <i className="fa-solid fa-book"></i>
-                                            <span className='user-link-name'>Notebooks</span>
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/trash' className="dashboard-page-link" activeClassName='dashboard-page-link-active'>
-                                            <i className="fa-solid fa-trash"></i>
-                                            <span className='user-link-name'>Trash</span>
-                                        </NavLink>
-                                    </li>
+                                    <div className='lower-sidebar-section-wrapper'>
+                                        <div className='lower-sidebar-section'>
+                                            <div className='user-action-items-links'>
+                                                <li className='sidebar-notes-link'>
+                                                    <NavLink to='/notes' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                        <i className="fa-solid fa-note-sticky"></i>
+                                                        <span className='user-link-name'>Notes</span>
+                                                    </NavLink>
+                                                </li>
+                                                <li className='sidebar-task-button'>
+                                                    <div className="task-button" activestyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                        <i className="fa-solid fa-circle-check"></i>
+                                                        <span className='user-link-name'>Tasks</span>
+                                                    </div>
+                                                </li>
+                                                <div className='sidebar-spacer'></div>
+                                                <li className='sidebar-notebooks-link'>
+                                                    <NavLink to='/notebooks' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                        <i className="fa-solid fa-book"></i>
+                                                        <span className='user-link-name'>Notebooks</span>
+                                                    </NavLink>
+                                                </li>
+                                                <li className='sidebar-tags-button'>
+                                                    <div className="dashboard-page-link" activestyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                        <i className="fa-solid fa-tag"></i>
+                                                        <span className='user-link-name'>Tags</span>
+                                                    </div>
+                                                </li>
+                                                <li className='sidebar-trash-link'>
+                                                    <div className='trash-link-wrapper'>
+                                                        <NavLink to='/trash' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                            <i className="fa-solid fa-trash"></i>
+                                                            <span className='user-link-name'>Trash</span>
+                                                        </NavLink>
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </ul>
                             </ul>
+                            <hr className='sidebar-bottom-separator' />
+                            <li className='sidebar-logout-button-container'>
+                                <div className='sidebar-logout-button-wrapper'>
+                                    <div className='sidebar-logout-button'>
+                                        <LogoutButton />
+                                    </div>
+                                </div>
+                            </li>
                         </div>
                     </nav>
                 </div>
