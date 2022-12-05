@@ -20,10 +20,11 @@ def notes():
     notes = Note.query.filter(Note.author_id == current_user.id)
     return {note.to_dict()["id"]: note.to_dict() for note in notes}
 
+
 @notes_routes.route("/<int:id>")
 @login_required
 def single_note(id):
-    note = Note.query.filter(Note.id == id)
+    note = Note.query.get(id)
     return note.to_dict()
 
 
@@ -36,7 +37,8 @@ def new_notes():
     form.notebooks.choices = [(n.id, n.name) for n in notebook_options]
     if form.validate_on_submit():
         if form.data["title"] == "":
-            title_list = form.data["body"].split(" ")[0]
+            # title_list = form.data["body"].split(" ")[0]
+            title_list = "Untitled"
         else:
             title_list = form.data["title"]
         note = Note(

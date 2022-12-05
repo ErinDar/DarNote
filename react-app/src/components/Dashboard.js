@@ -107,9 +107,7 @@ export default function Dashboard() {
                                                     </section>
                                                 </article>
                                             </div>
-
-                                            {/* task */}
-                                            {/* <div className='task-dashboard-quad'>
+                                            <div className='task-dashboard-quad'>
                                                 <article className='task-quad-container'>
                                                     <section className='task-quad-header'>
                                                         <div className='task-quad-title-container'>
@@ -126,7 +124,7 @@ export default function Dashboard() {
                                                     </section>
                                                     <section className='task-quad-body'>
                                                         <div className='task-quad-container'>
-                                                        
+
                                                             <div className='task-quad-wrapper'>
                                                                 <p className='empty-task-message'>Add tasks to any note and prioritize them with due dates and tags</p>
                                                                 <div className='empty-new-task-button-container'>
@@ -141,10 +139,10 @@ export default function Dashboard() {
                                                         </div>
                                                     </section>
                                                 </article>
-                                            </div> */}
+                                            </div>
 
-                                            {/* tags */}
-                                            {/* <div className='tags-dashboard-quad'>
+
+                                            <div className='tags-dashboard-quad'>
                                                 <article className='tags-quad-container'>
                                                     <section className='tags-quad-header'>
                                                         <div className='tags-quad-title-container'>
@@ -161,7 +159,7 @@ export default function Dashboard() {
                                                     </section>
                                                     <section className='tags-quad-body'>
                                                         <div className='tags-quad-container'>
-                                                            
+
                                                             <div className='tags-quad-wrapper'>
                                                                 <p className='empty-tags-message'>Tag notes with keywords to make them easier to find.</p>
                                                                 <div className='empty-new-tags-button-container'>
@@ -172,14 +170,15 @@ export default function Dashboard() {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </section>
                                                 </article>
-                                            </div> */}
+                                            </div>
 
                                             {/* notebooks */}
-                                            {/* <div className='notebooks-dashboard-quad'>
+
+                                            <div className='notebooks-dashboard-quad'>
                                                 <article className='notebooks-quad-container'>
                                                     <section className='notebooks-quad-header'>
                                                         <div className='notebooks-quad-title-container'>
@@ -195,11 +194,11 @@ export default function Dashboard() {
                                                         </div>
                                                     </section>
                                                     <section className='notebooks-quad-body'>
-                                                        <div className='notebooks-quad-container'>
+                                                        <div className='notebooks-quad-container-inner'>
                                                             <div className='notebooks-quad-wrapper'>
                                                                 <div className='notebooks-wrapper'>
                                                                     {notebooks[0] && notebooks.map((notebook, idx) => (
-                                                                        <article key={idx} className='notebook-item' onClick={() => history.push(`/ notebooks / ${ notebook.id }`)}>
+                                                                        <article key={idx} className='notebook-item' onClick={() => history.push(`/ notebooks / ${notebook.id}`)}>
                                                                             <div className='notebook-item-body'>
                                                                                 <h2 className='notebook-item-title'>{notebook.name}</h2>
                                                                                 <span></span>
@@ -208,6 +207,7 @@ export default function Dashboard() {
                                                                     ))}
                                                                     <article className='create-notebook-book'>
                                                                         <div className='create-notebook-body' onClick={() => setNotebookForm(true)}>
+                                                                            <i className="fa-solid fa-circle-plus fa-3x"></i>
                                                                             <p className='create-notebook-title'>Create new notebook</p>
                                                                         </div>
                                                                     </article>
@@ -218,7 +218,7 @@ export default function Dashboard() {
                                                         </div>
                                                     </section>
                                                 </article>
-                                            </div> */}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

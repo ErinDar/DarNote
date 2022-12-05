@@ -6,9 +6,10 @@ const singleNote = (note) => ({
 })
 
 export const singleNoteThunk = (id) => async (dispatch) => {
-    const res = await fetch(`/api/notes/$id`)
+    const res = await fetch(`/api/notes/${id}`)
     if (res.ok) {
         const note = await res.json()
+        console.log('note', note)
         dispatch(singleNote(note))
         return note
     }
@@ -20,7 +21,7 @@ export default function targetNote(state = initialState, action) {
     let newState = {}
     switch (action.type) {
         case SINGLE_NOTE:
-            newState = { ...state }
+            newState = { ...action.note }
             return newState
         default:
             return state

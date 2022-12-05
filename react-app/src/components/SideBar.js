@@ -8,11 +8,6 @@ import "./CSS/Sidebar.css"
 
 export default function Sidebar() {
     const user = useSelector(state => state.session.user)
-    const [home, setHome] = useState(true)
-    const [notes, setNotes] = useState(false)
-    const [notebooks, setNotebooks] = useState(false)
-    const [task, setTask] = useState(false)
-    const [tags, setTags] = useState(false)
 
     let profilePic;
     if (user) {
@@ -45,7 +40,10 @@ export default function Sidebar() {
                                     </div>
                                 </li>
                                 <li className='sidebar-search-new-section'>
-                                    <div className='sidebar-search-container'>
+
+                                    {/* implement search bar later */}
+
+                                    {/* <div className='sidebar-search-container'>
                                         <div className='sidebar-search-wrapper'>
                                             <div className='sidebar-search'>
                                                 <svg className='search-mag-glass' width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +79,7 @@ export default function Sidebar() {
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='sidebar-new-container'>
                                         <div className='sidebar-new-wrapper'>
                                             <button className='sidebar-new-button'>
@@ -91,7 +89,7 @@ export default function Sidebar() {
                                                         fill="currentColor"
                                                     />
                                                 </svg>
-                                                <div className='new-button-name'>New</div>
+                                                <div className='new-button-name'>Create New Note</div>
                                             </button>
                                             <svg className='new-button-arrow' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox='0 0 8 8'>
                                                 <path fill="none" d="M7 2L4 5 1 2"></path>
@@ -103,7 +101,7 @@ export default function Sidebar() {
                                     <li className='sidebar-home-link'>
                                         <NavLink to='/dashboard' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
                                             <i className="fa-solid fa-house"></i>
-                                            <span className='user-link-name' onClick={() => setHome(true)}>Home</span>
+                                            <span className='user-link-name'>Home</span>
                                         </NavLink>
                                     </li>
                                     <div className='lower-sidebar-section-wrapper'>
@@ -112,7 +110,7 @@ export default function Sidebar() {
                                                 <li className='sidebar-notes-link'>
                                                     <NavLink to='/notes' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
                                                         <i className="fa-solid fa-note-sticky"></i>
-                                                        <span className='user-link-name' onClick={() => setNotes(true)}>Notes</span>
+                                                        <span className='user-link-name'>Notes</span>
                                                     </NavLink>
                                                 </li>
                                                 <li className='sidebar-task-button'>
