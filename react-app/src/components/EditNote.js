@@ -1,25 +1,25 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useHistory, useLocation } from 'react-router-dom'
-import { useEffect, useState } from "react";
-import { Modal } from "../context/Modal";
-import Sidebar from "./SideBar";
-import Editor from "./Editor";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Modal } from '../context/Modal';
+import Sidebar from './SideBar';
+import Editor from './Editor';
 import * as notebookActions from '../store/notebooks'
-import * as notesActions from '../store/notes'
+import * as noteActions from '../store/notes'
 
-export default function Note() {
+
+export default function EditNote() {
+    const notes = Object.values(useSelector(state => state.notes)).reverse()
     const location = useLocation()
     const body = document.querySelector("body")
     const classes = body.classList
 
-    if (location.pathname === '/notes') {
+    if (location.pathname.includes('/notes')) {
         document.body.classList.remove(...classes)
         document.body.classList.add("notes-page")
     }
-    //  notes page just shows all the notes by the user with text editor open 
-    //  can edit notes from notes page
-    //  redirects to edit page when notes are clicked on
+    console.log('notes', notes)
     return (
         <>
             <div className="notebooks-view-page">

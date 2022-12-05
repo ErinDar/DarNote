@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard'
 import Notebook from './components/Notebooks'
 import Note from './components/Notes'
 import Editor from './components/Editor';
+import EditNote from './components/EditNote';
 import TargetNotebook from './components/TargetNotebook';
 import { authenticate } from './store/session';
 
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/notes' exact={true}>
           <Note />
+        </ProtectedRoute>
+        <ProtectedRoute path='/notes/:noteId'>
+          <EditNote />
         </ProtectedRoute>
         <ProtectedRoute path='/notebooks/:notebooksId' exact={true} >
           <TargetNotebook />

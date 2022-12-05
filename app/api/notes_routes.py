@@ -20,6 +20,12 @@ def notes():
     notes = Note.query.filter(Note.author_id == current_user.id)
     return {note.to_dict()["id"]: note.to_dict() for note in notes}
 
+@notes_routes.route("/<int:id>")
+@login_required
+def single_note(id):
+    note = Note.query.filter(Note.id == id)
+    return note.to_dict()
+
 
 @notes_routes.route("/new", methods=["POST"])
 @login_required

@@ -8,11 +8,16 @@ import 'quill/dist/quill.snow.css'
 export default function Editor() {
     const dispatch = useDispatch()
     const { quill, quillRef } = useQuill()
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
+    // const [title, setTitle] = useState('')
+    // const [body, setBody] = useState('')
+    let title;
+    let body;
+    // const [notebook, setNotebook] = useState()
 
 
     useEffect(() => {
+
+        const note = dispatch(notesActions.getNotesThunk())
         if (quill) {
             // default text for editor
             quill.clipboard.dangerouslyPasteHTML('<p>Start writing...</p>');
@@ -20,9 +25,6 @@ export default function Editor() {
             // find which has the information I want to save to database
             quill.on('text-change', (delta, oldDelta, source) => {
                 //  autosave: fire off a put request as this changes
-                setTitle('Untitled')
-                setBody(quillRef.current.firstChild.innerHTML)
-                dispatch(notesActions.postNoteThunk({ title, body }))
                 console.log(quillRef.current.firstChild.innerHTML); // Get innerHTML using quillRef
             });
         }
@@ -30,12 +32,16 @@ export default function Editor() {
     }, [quill]);
 
 
-    // const saveQuillHTML = async () => {
-    //     const dataToSave = {
-    //         body: quillRef.current.firstChild.innerHTML
-    //     }
-    //     // create fetch request
-    // }
+    const saveQuillHTML = async () => {
+        title = 'Untitled'
+        body = (quillRef.current.firstChild.innerHTML)
+        let notebooks = 1
+        // create fetch request
+        console.log('body', body)
+        const note = await dispatch(notesActions.postNoteThunk({ title, body, notebooks }))
+        console.log('note', note.body)
+        // console.log('inner html', quill.clipboard.dangerouslyPasteHTML(note.body))
+    }
     return (
         <>
             <div>
@@ -51,7 +57,7 @@ export default function Editor() {
             <br />
             <br />
             <br />
-            {/* <button onClick={saveQuillHTML}>Save Data for now</button> */}
+            <button onClick={saveQuillHTML}>Save Data for now</button>
         </>
     );
 }
