@@ -127,19 +127,19 @@ export default function Sidebar() {
                                                     </NavLink>
                                                 </li>
                                                 <li className='sidebar-tags-button'>
-                                                    <div className="dashboard-page-link" activestyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
+                                                    <div className="dashboard-page-link disabled" activestyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
                                                         <i className="fa-solid fa-tag"></i>
                                                         <span className='user-link-name'>Tags</span>
                                                     </div>
                                                 </li>
-                                                <li className='sidebar-trash-link'>
+                                                {/* <li className='sidebar-trash-link'>
                                                     <div className='trash-link-wrapper'>
                                                         <NavLink to='/trash' className="dashboard-page-link" activeStyle={{ color: '#e6e6e6', backgroundColor: '#333' }}>
                                                             <i className="fa-solid fa-trash"></i>
                                                             <span className='user-link-name'>Trash</span>
                                                         </NavLink>
                                                     </div>
-                                                </li>
+                                                </li> */}
                                             </div>
                                         </div>
                                     </div>
